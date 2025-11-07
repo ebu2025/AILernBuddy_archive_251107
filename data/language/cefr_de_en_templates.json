@@ -1,0 +1,842 @@
+{
+  "language_pair": "de_en",
+  "levels": {
+    "A1": {
+      "default_bloom": "K1",
+      "grammar_focus": [
+        "Simple present",
+        "Verb-second word order",
+        "Yes/No questions"
+      ],
+      "competencies": [
+        "Introduce yourself",
+        "Exchange basic personal information"
+      ],
+      "simple": {
+        "text_tokens": [
+          "Hallo",
+          ",",
+          "ich",
+          "bin",
+          "Lena",
+          "und",
+          "ich",
+          "komme",
+          "aus",
+          "Berlin",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "Hallo",
+            "translation": "hello",
+            "notes": "Greeting",
+            "cefr_level": "A1",
+            "bloom_level": "K1"
+          },
+          {
+            "token": "kommen aus",
+            "translation": "to come from",
+            "notes": "Verb phrase",
+            "cefr_level": "A1",
+            "bloom_level": "K1"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "a1_word_class",
+            "prompt": "Identify the verb-second position in the sentence.",
+            "bloom_level": "K1",
+            "cefr_level": "A1",
+            "difficulty": "recall"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "a1_dialogue",
+            "description": "Write a two-line dialogue introducing yourself and asking for someone's name.",
+            "target_bloom_level": "K1"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "Guten",
+          "Tag",
+          ",",
+          "ich",
+          "heiße",
+          "Lena",
+          "und",
+          "ich",
+          "arbeite",
+          "als",
+          "Lehrerin",
+          "in",
+          "Berlin",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "Guten Tag",
+            "translation": "good day",
+            "notes": "Formal greeting",
+            "cefr_level": "A1",
+            "bloom_level": "K1"
+          },
+          {
+            "token": "arbeiten",
+            "translation": "to work",
+            "notes": "Verb",
+            "cefr_level": "A1",
+            "bloom_level": "K1"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "a1_sentence_pattern",
+            "prompt": "Transform the introduction into a question form.",
+            "bloom_level": "K2",
+            "cefr_level": "A1",
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "a1_role_play",
+            "description": "Simulate meeting someone at a train station and exchanging names and origins.",
+            "target_bloom_level": "K2"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to the introduction and select the city mentioned.",
+          "audio": {
+            "asset": "audio/cefr/a1_intro.mp3",
+            "duration_seconds": 16,
+            "transcript": "Hallo, ich bin Lena und ich komme aus Berlin."
+          },
+          "keywords": [
+            "Berlin"
+          ],
+          "bloom_level": "K1"
+        },
+        "translation": {
+          "source_text": "Ich komme aus Berlin.",
+          "target_language": "English",
+          "rubric": "Preserve present-tense meaning.",
+          "bloom_level": "K1",
+          "reference_translation": "I come from Berlin."
+        },
+        "dialogue_simulation": {
+          "scenario": "Exchange greetings with a traveller and ask where they are from.",
+          "roles": [
+            "You",
+            "Traveller"
+          ],
+          "bloom_level": "K1"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "komme",
+            "Berlin"
+          ],
+          "stress_pattern": [
+            1,
+            2
+          ],
+          "model_audio": "audio/cefr/a1_pronunciation.mp3"
+        }
+      }
+    },
+    "A2": {
+      "default_bloom": "K2",
+      "grammar_focus": [
+        "Modal verbs",
+        "Separable verbs",
+        "Past perfect with haben"
+      ],
+      "competencies": [
+        "Describe routines",
+        "Make polite requests"
+      ],
+      "simple": {
+        "text_tokens": [
+          "Ich",
+          "muss",
+          "heute",
+          "lange",
+          "arbeiten",
+          "und",
+          "kann",
+          "deshalb",
+          "nicht",
+          "zum",
+          "Sport",
+          "gehen",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "müssen",
+            "translation": "must",
+            "notes": "Modal verb",
+            "cefr_level": "A2",
+            "bloom_level": "K2"
+          },
+          {
+            "token": "können",
+            "translation": "can",
+            "notes": "Modal verb",
+            "cefr_level": "A2",
+            "bloom_level": "K2"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "a2_modal_order",
+            "prompt": "Mark the position of the infinitive in the modal construction.",
+            "bloom_level": "K2",
+            "cefr_level": "A2",
+            "difficulty": "analysis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "a2_email",
+            "description": "Write a short message explaining why you cannot attend an appointment.",
+            "target_bloom_level": "K2"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "Wir",
+          "haben",
+          "gestern",
+          "eingekauft",
+          "und",
+          "haben",
+          "später",
+          "zusammen",
+          "gekocht",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "eingekauft",
+            "translation": "shopped",
+            "notes": "Past participle of einkaufen",
+            "cefr_level": "A2",
+            "bloom_level": "K2"
+          },
+          {
+            "token": "zusammen kochen",
+            "translation": "to cook together",
+            "notes": "Phrase",
+            "cefr_level": "A2",
+            "bloom_level": "K2"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "a2_separable",
+            "prompt": "Separate the verb einkaufen into its prefix and root for past forms.",
+            "bloom_level": "K2",
+            "cefr_level": "A2",
+            "difficulty": "analysis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "a2_diary",
+            "description": "Describe your last shopping trip using two separable verbs.",
+            "target_bloom_level": "K2"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to the routine and select the modal verb that appears.",
+          "audio": {
+            "asset": "audio/cefr/a2_routine.mp3",
+            "duration_seconds": 24,
+            "transcript": "Ich muss heute lange arbeiten und kann deshalb nicht zum Sport gehen."
+          },
+          "keywords": [
+            "muss",
+            "kann"
+          ],
+          "bloom_level": "K2"
+        },
+        "translation": {
+          "source_text": "Wir haben gestern eingekauft.",
+          "target_language": "English",
+          "rubric": "Use past tense with 'went shopping'.",
+          "bloom_level": "K2",
+          "reference_translation": "We went shopping yesterday."
+        },
+        "dialogue_simulation": {
+          "scenario": "Politely decline an invitation because you must work late.",
+          "roles": [
+            "You",
+            "Friend"
+          ],
+          "bloom_level": "K2"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "eingekauft",
+            "Sport"
+          ],
+          "stress_pattern": [
+            1,
+            1
+          ],
+          "model_audio": "audio/cefr/a2_pronunciation.mp3"
+        }
+      }
+    },
+    "B1": {
+      "default_bloom": "K3",
+      "grammar_focus": [
+        "Relative clauses",
+        "Past narrative tenses",
+        "Indirect questions"
+      ],
+      "competencies": [
+        "Tell stories",
+        "Ask for clarifications"
+      ],
+      "simple": {
+        "text_tokens": [
+          "Die",
+          "Person",
+          ",",
+          "die",
+          "gestern",
+          "angerufen",
+          "hat",
+          ",",
+          "möchte",
+          "einen",
+          "Termin",
+          "vereinbaren",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "Termin vereinbaren",
+            "translation": "to schedule an appointment",
+            "notes": "Phrase",
+            "cefr_level": "B1",
+            "bloom_level": "K3"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "b1_relative",
+            "prompt": "Label the relative clause in the sentence.",
+            "bloom_level": "K3",
+            "cefr_level": "B1",
+            "difficulty": "analysis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "b1_story",
+            "description": "Write a short story using at least one relative clause.",
+            "target_bloom_level": "K3"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "Er",
+          "fragte",
+          ",",
+          "ob",
+          "ich",
+          "wüsste",
+          ",",
+          "warum",
+          "der",
+          "Zug",
+          "schon",
+          "abgefahren",
+          "sei",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "abgefahren",
+            "translation": "departed",
+            "notes": "Past participle",
+            "cefr_level": "B1",
+            "bloom_level": "K3"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "b1_indirect",
+            "prompt": "Transform the indirect question into a direct one.",
+            "bloom_level": "K3",
+            "cefr_level": "B1",
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "b1_dialogue",
+            "description": "Simulate a conversation resolving a travel problem with indirect questions.",
+            "target_bloom_level": "K3"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Identify the reason the caller wants to meet.",
+          "audio": {
+            "asset": "audio/cefr/b1_call.mp3",
+            "duration_seconds": 28,
+            "transcript": "Die Person, die gestern angerufen hat, möchte einen Termin vereinbaren."
+          },
+          "keywords": [
+            "Termin",
+            "gestern"
+          ],
+          "bloom_level": "K3"
+        },
+        "translation": {
+          "source_text": "Er fragte, ob ich wüsste, warum der Zug schon abgefahren sei.",
+          "target_language": "English",
+          "rubric": "Use indirect question structure with 'if' or 'whether'.",
+          "bloom_level": "K3",
+          "reference_translation": "He asked if I knew why the train had already departed."
+        },
+        "dialogue_simulation": {
+          "scenario": "Resolve a scheduling conflict by clarifying the caller's request.",
+          "roles": [
+            "Receptionist",
+            "Customer"
+          ],
+          "bloom_level": "K3"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "angerufen",
+            "abgefahren"
+          ],
+          "stress_pattern": [
+            1,
+            1
+          ],
+          "model_audio": "audio/cefr/b1_pronunciation.mp3"
+        }
+      }
+    },
+    "B2": {
+      "default_bloom": "K4",
+      "grammar_focus": [
+        "Passive voice variants",
+        "Subjunctive II",
+        "Connector variety"
+      ],
+      "competencies": [
+        "Discuss abstract topics",
+        "Provide advice"
+      ],
+      "simple": {
+        "text_tokens": [
+          "Das",
+          "Problem",
+          "wird",
+          "im",
+          "Moment",
+          "noch",
+          "untersucht",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "untersucht",
+            "translation": "investigated",
+            "notes": "Passive participle",
+            "cefr_level": "B2",
+            "bloom_level": "K4"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "b2_passive",
+            "prompt": "Transform the passive sentence into an active one.",
+            "bloom_level": "K4",
+            "cefr_level": "B2",
+            "difficulty": "analysis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "b2_report",
+            "description": "Write a short status report using two passive constructions.",
+            "target_bloom_level": "K4"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "Ich",
+          "würde",
+          "vorschlagen",
+          ",",
+          "dass",
+          "wir",
+          "zunächst",
+          "die",
+          "Alternativen",
+          "prüfen",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "würde vorschlagen",
+            "translation": "would suggest",
+            "notes": "Subjunctive II",
+            "cefr_level": "B2",
+            "bloom_level": "K4"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "b2_subjunctive",
+            "prompt": "Rewrite the suggestion using a different connector.",
+            "bloom_level": "K4",
+            "cefr_level": "B2",
+            "difficulty": "synthesis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "b2_consulting",
+            "description": "Provide advice to a colleague using at least two connector variants.",
+            "target_bloom_level": "K4"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Determine who is responsible for investigating the issue.",
+          "audio": {
+            "asset": "audio/cefr/b2_status.mp3",
+            "duration_seconds": 30,
+            "transcript": "Das Problem wird im Moment noch untersucht, deshalb würde ich vorschlagen, dass wir die Alternativen prüfen."
+          },
+          "keywords": [
+            "untersucht",
+            "vorschlagen"
+          ],
+          "bloom_level": "K4"
+        },
+        "translation": {
+          "source_text": "Ich würde vorschlagen, dass wir zunächst die Alternativen prüfen.",
+          "target_language": "English",
+          "rubric": "Render Subjunctive II with 'would suggest'.",
+          "bloom_level": "K4",
+          "reference_translation": "I would suggest that we check the alternatives first."
+        },
+        "dialogue_simulation": {
+          "scenario": "Advise a team on next steps after an unresolved issue.",
+          "roles": [
+            "Advisor",
+            "Team"
+          ],
+          "bloom_level": "K4"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "vorschlagen",
+            "Alternativen"
+          ],
+          "stress_pattern": [
+            1,
+            3
+          ],
+          "model_audio": "audio/cefr/b2_pronunciation.mp3"
+        }
+      }
+    },
+    "C1": {
+      "default_bloom": "K5",
+      "grammar_focus": [
+        "Nominalisation",
+        "Reported speech",
+        "Advanced connectors"
+      ],
+      "competencies": [
+        "Present arguments",
+        "Moderate discussions"
+      ],
+      "simple": {
+        "text_tokens": [
+          "Die",
+          "Leitung",
+          "betonte",
+          ",",
+          "dass",
+          "eine",
+          "klare",
+          "Kommunikation",
+          "entscheidend",
+          "sei",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "Kommunikation",
+            "translation": "communication",
+            "notes": "Noun",
+            "cefr_level": "C1",
+            "bloom_level": "K5"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "c1_nominalisation",
+            "prompt": "Nominalise the clause to create a headline.",
+            "bloom_level": "K5",
+            "cefr_level": "C1",
+            "difficulty": "synthesis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "c1_summary",
+            "description": "Summarise a meeting focusing on reported speech cues.",
+            "target_bloom_level": "K5"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "Angesichts",
+          "der",
+          "aktuellen",
+          "Entwicklungen",
+          "sei",
+          "eine",
+          "strategische",
+          "Neuorientierung",
+          "unvermeidlich",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "strategische Neuorientierung",
+            "translation": "strategic reorientation",
+            "notes": "Nominal phrase",
+            "cefr_level": "C1",
+            "bloom_level": "K5"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "c1_connectors",
+            "prompt": "Replace Angesichts with an alternative connector.",
+            "bloom_level": "K5",
+            "cefr_level": "C1",
+            "difficulty": "evaluation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "c1_briefing",
+            "description": "Prepare a briefing using two nominalisations and reported speech.",
+            "target_bloom_level": "K5"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Identify the strategic recommendation mentioned.",
+          "audio": {
+            "asset": "audio/cefr/c1_briefing.mp3",
+            "duration_seconds": 35,
+            "transcript": "Die Leitung betonte, dass eine klare Kommunikation entscheidend sei, und erklärte, dass angesichts der aktuellen Entwicklungen eine strategische Neuorientierung unvermeidlich sei."
+          },
+          "keywords": [
+            "Kommunikation",
+            "Neuorientierung"
+          ],
+          "bloom_level": "K5"
+        },
+        "translation": {
+          "source_text": "Angesichts der aktuellen Entwicklungen sei eine strategische Neuorientierung unvermeidlich.",
+          "target_language": "English",
+          "rubric": "Use formal register and report speech with 'is said to be'.",
+          "bloom_level": "K5",
+          "reference_translation": "In view of the current developments, a strategic reorientation is said to be unavoidable."
+        },
+        "dialogue_simulation": {
+          "scenario": "Moderate a leadership discussion summarising stakeholders' statements.",
+          "roles": [
+            "Moderator",
+            "Leadership team"
+          ],
+          "bloom_level": "K5"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "Neuorientierung",
+            "entscheidend"
+          ],
+          "stress_pattern": [
+            3,
+            2
+          ],
+          "model_audio": "audio/cefr/c1_pronunciation.mp3"
+        }
+      }
+    },
+    "C2": {
+      "default_bloom": "K6",
+      "grammar_focus": [
+        "Nuanced modality",
+        "Register shifts",
+        "Complex embedding"
+      ],
+      "competencies": [
+        "Deliver keynote speeches",
+        "Adapt tone to audience"
+      ],
+      "simple": {
+        "text_tokens": [
+          "Es",
+          "wäre",
+          "zu",
+          "erwägen",
+          ",",
+          "ob",
+          "eine",
+          "spürbare",
+          "Neujustierung",
+          "der",
+          "Prioritäten",
+          "geboten",
+          "ist",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "zu erwägen",
+            "translation": "to be considered",
+            "notes": "Formal infinitive",
+            "cefr_level": "C2",
+            "bloom_level": "K6"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "c2_modality",
+            "prompt": "Explain the modal nuance conveyed by wäre zu erwägen.",
+            "bloom_level": "K6",
+            "cefr_level": "C2",
+            "difficulty": "evaluation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "c2_editorial",
+            "description": "Draft an editorial paragraph weighing policy options.",
+            "target_bloom_level": "K6"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "Sollte",
+          "die",
+          "Maßnahme",
+          "jedoch",
+          "anders",
+          "interpretiert",
+          "werden",
+          ",",
+          "müsste",
+          "der",
+          "Tenor",
+          "entsprechend",
+          "angepasst",
+          "werden",
+          "."
+        ],
+        "vocab": [
+          {
+            "token": "interpretiert werden",
+            "translation": "be interpreted",
+            "notes": "Passive construction",
+            "cefr_level": "C2",
+            "bloom_level": "K6"
+          }
+        ],
+        "exercises": [
+          {
+            "id": "c2_register",
+            "prompt": "Shift the sentence into a colloquial register while preserving meaning.",
+            "bloom_level": "K6",
+            "cefr_level": "C2",
+            "difficulty": "creation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "c2_keynote",
+            "description": "Plan a keynote outline with varied register strategies.",
+            "target_bloom_level": "K6"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Assess the implied recommendation strength.",
+          "audio": {
+            "asset": "audio/cefr/c2_keynote.mp3",
+            "duration_seconds": 42,
+            "transcript": "Es wäre zu erwägen, ob eine spürbare Neujustierung der Prioritäten geboten ist. Sollte die Maßnahme jedoch anders interpretiert werden, müsste der Tenor entsprechend angepasst werden."
+          },
+          "keywords": [
+            "Neujustierung",
+            "angepasst"
+          ],
+          "bloom_level": "K6"
+        },
+        "translation": {
+          "source_text": "Sollte die Maßnahme anders interpretiert werden, müsste der Tenor entsprechend angepasst werden.",
+          "target_language": "English",
+          "rubric": "Convey conditional nuance with 'should'.",
+          "bloom_level": "K6",
+          "reference_translation": "Should the measure be interpreted differently, the tone would need to be adjusted accordingly."
+        },
+        "dialogue_simulation": {
+          "scenario": "Simulate a bilingual press briefing adapting tone for different audiences.",
+          "roles": [
+            "Spokesperson",
+            "Journalist"
+          ],
+          "bloom_level": "K6"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "Neujustierung",
+            "interpretiert"
+          ],
+          "stress_pattern": [
+            3,
+            4
+          ],
+          "model_audio": "audio/cefr/c2_pronunciation.mp3"
+        }
+      }
+    }
+  }
+}

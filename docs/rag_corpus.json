@@ -1,0 +1,32 @@
+[
+  {
+    "id": "bpmn_overview",
+    "title": "BPMN Overview",
+    "tags": ["bpmn", "process"],
+    "content": "Business Process Model and Notation (BPMN) is a standard visual language for documenting how activities, events, and decisions flow between participants. It clarifies who does what, when messages move between pools, and where choices or parallel branches occur."
+  },
+  {
+    "id": "bpmn_gateways",
+    "title": "Gateway Primer",
+    "tags": ["bpmn", "decision"],
+    "content": "Exclusive gateways (XOR) route a process down exactly one branch based on data conditions, whereas parallel gateways (AND) launch multiple paths that must all complete. Modellers choose the gateway type to reflect how work actually diverges or synchronises."
+  },
+  {
+    "id": "math_k1_operations",
+    "title": "Mathematics K1 Operations",
+    "tags": ["mathematics", "k1"],
+    "content": "Early mathematics focuses on composing and decomposing small numbers through addition and subtraction. Learners build fact fluency with manipulatives, word problems, and strategies like making ten or counting on."
+  },
+  {
+    "id": "metacognition_study",
+    "title": "Metacognitive Study Habits",
+    "tags": ["learning", "study"],
+    "content": "Strong study routines cycle through planning, monitoring, and reflection. Students set concrete goals, track their understanding with self-questions, and adjust tactics when comprehension dips."
+  },
+  {
+    "id": "language_metaphor",
+    "title": "Understanding Metaphors",
+    "tags": ["language", "figurative"],
+    "content": "A metaphor describes one idea using language normally applied to another, highlighting a shared quality without using like or as. Writers rely on vivid metaphors to help readers build mental images quickly."
+  }
+]

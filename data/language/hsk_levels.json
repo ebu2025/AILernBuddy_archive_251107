@@ -1,0 +1,1351 @@
+{
+  "language_pair": "zh_en",
+  "levels": {
+    "HSK1": {
+      "default_bloom": "K1",
+      "grammar_focus": [
+        "Basic SVO sentence order",
+        "Question particle 吗",
+        "Polite expressions"
+      ],
+      "competencies": [
+        "Introduce self and family",
+        "Exchange simple pleasantries"
+      ],
+      "simple": {
+        "text_tokens": [
+          "你好",
+          "！",
+          "我叫",
+          "安娜",
+          "。",
+          "我",
+          "喜欢",
+          "喝",
+          "茶",
+          "，",
+          "也",
+          "喜欢",
+          "吃",
+          "米饭",
+          "。",
+          "你",
+          "好吗",
+          "？"
+        ],
+        "vocab": [
+          {
+            "token": "你好",
+            "translation": "hello",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Greeting opening."
+          },
+          {
+            "token": "我",
+            "translation": "I/me",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Subject pronoun."
+          },
+          {
+            "token": "喜欢",
+            "translation": "to like",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Preference verb."
+          },
+          {
+            "token": "茶",
+            "translation": "tea",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Drink noun."
+          },
+          {
+            "token": "米饭",
+            "translation": "rice (cooked)",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Food noun."
+          },
+          {
+            "token": "你好吗",
+            "translation": "How are you?",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Formulaic question."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk1_comp_1",
+            "prompt": "Translate the sentence \"我喜欢喝茶。\" into English.",
+            "bloom_level": "K1",
+            "hsk_level": 1,
+            "difficulty": "recall"
+          },
+          {
+            "id": "hsk1_pronunciation_1",
+            "prompt": "Record yourself saying 你好 and 我喜欢喝茶.",
+            "bloom_level": "K2",
+            "hsk_level": 1,
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk1_task_intro",
+            "description": "Write three sentences introducing yourself using 你好 and 喜欢.",
+            "target_bloom_level": "K2"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "你好",
+          "，",
+          "我是",
+          "安娜",
+          "。",
+          "今天",
+          "在",
+          "公园",
+          "散步",
+          "时",
+          "感到",
+          "很",
+          "放松",
+          "，",
+          "虽然",
+          "天气",
+          "有点",
+          "凉",
+          "，",
+          "但是",
+          "阳光",
+          "让",
+          "我",
+          "觉得",
+          "温暖",
+          "。",
+          "我",
+          "还",
+          "遇到",
+          "朋友",
+          "，",
+          "我们",
+          "一起",
+          "计划",
+          "周末",
+          "去",
+          "市场",
+          "买",
+          "新鲜",
+          "蔬菜",
+          "和",
+          "水果",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "散步",
+            "translation": "to take a walk",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Extended activity verb."
+          },
+          {
+            "token": "放松",
+            "translation": "relaxed",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Emotion adjective."
+          },
+          {
+            "token": "虽然",
+            "translation": "although",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Clause connector."
+          },
+          {
+            "token": "计划",
+            "translation": "plan",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Higher-level verb."
+          },
+          {
+            "token": "蔬菜",
+            "translation": "vegetables",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Food noun beyond HSK1."
+          },
+          {
+            "token": "水果",
+            "translation": "fruit",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Food noun beyond HSK1."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk1_comp_advanced",
+            "prompt": "Identify the concessive clause introduced by 虽然 and rewrite it using 但是.",
+            "bloom_level": "K3",
+            "hsk_level": 3,
+            "difficulty": "analysis"
+          },
+          {
+            "id": "hsk1_vocab_extension",
+            "prompt": "List two additional food nouns that fit with 市场买.",
+            "bloom_level": "K2",
+            "hsk_level": 2,
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk1_task_story",
+            "description": "Compose a short paragraph about a relaxing day using 虽然……但是…… structure.",
+            "target_bloom_level": "K3"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to the greeting audio and choose the correct response.",
+          "audio": {
+            "asset": "audio/hsk1/greeting_intro.mp3",
+            "duration_seconds": 18,
+            "transcript": "你好！我叫安娜。我喜欢喝茶，也喜欢吃米饭。你好吗？"
+          },
+          "keywords": [
+            "你好",
+            "喜欢",
+            "米饭"
+          ],
+          "bloom_level": "K1"
+        },
+        "translation": {
+          "source_text": "我喜欢喝茶。",
+          "target_language": "English",
+          "rubric": "Translate preserving subject-verb-object order and key verb 喜欢.",
+          "bloom_level": "K1",
+          "reference_translation": "I like to drink tea."
+        },
+        "dialogue_simulation": {
+          "scenario": "Meet a classmate on campus and exchange greetings about drinks you like.",
+          "roles": [
+            "You",
+            "Classmate"
+          ],
+          "bloom_level": "K2"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "nǐ hǎo",
+            "xǐ huān"
+          ],
+          "target_tones": [
+            3,
+            3,
+            3,
+            1
+          ],
+          "model_audio": "audio/hsk1/tones_reference.mp3"
+        }
+      }
+    },
+    "HSK2": {
+      "default_bloom": "K2",
+      "grammar_focus": [
+        "Aspect particle 了",
+        "Measure words 个/杯",
+        "Time expressions"
+      ],
+      "competencies": [
+        "Talk about daily activities",
+        "Make simple requests"
+      ],
+      "simple": {
+        "text_tokens": [
+          "今天",
+          "下午",
+          "我",
+          "喝",
+          "了",
+          "一杯",
+          "咖啡",
+          "，",
+          "然后",
+          "去",
+          "超市",
+          "买",
+          "水果",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "咖啡",
+            "translation": "coffee",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Beverage noun."
+          },
+          {
+            "token": "然后",
+            "translation": "then/afterwards",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Sequential adverb."
+          },
+          {
+            "token": "超市",
+            "translation": "supermarket",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Location noun."
+          },
+          {
+            "token": "买",
+            "translation": "to buy",
+            "hsk_level": 1,
+            "bloom_level": "K1",
+            "notes": "Core verb."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk2_aspect",
+            "prompt": "Identify the completed actions signaled by 了 in the passage.",
+            "bloom_level": "K2",
+            "hsk_level": 2,
+            "difficulty": "understanding"
+          },
+          {
+            "id": "hsk2_measure",
+            "prompt": "Match measure words to the nouns 杯, 个, 本.",
+            "bloom_level": "K2",
+            "hsk_level": 2,
+            "difficulty": "classification"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk2_schedule",
+            "description": "Write three sentences about what you did yesterday afternoon using time expressions.",
+            "target_bloom_level": "K2"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "周末",
+          "的",
+          "时候",
+          "，",
+          "我",
+          "常常",
+          "和",
+          "朋友",
+          "去",
+          "城外",
+          "骑",
+          "自行车",
+          "，",
+          "呼吸",
+          "新鲜",
+          "空气",
+          "，",
+          "顺便",
+          "买",
+          "一些",
+          "当地",
+          "特色",
+          "小吃",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "城外",
+            "translation": "outskirts",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Location noun."
+          },
+          {
+            "token": "骑",
+            "translation": "to ride",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Action verb."
+          },
+          {
+            "token": "呼吸",
+            "translation": "to breathe",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Verb."
+          },
+          {
+            "token": "顺便",
+            "translation": "by the way",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Adverb."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk2_sequence",
+            "prompt": "Reorder the trip description to highlight 顺便.",
+            "bloom_level": "K3",
+            "hsk_level": 3,
+            "difficulty": "analysis"
+          },
+          {
+            "id": "hsk2_vocab_growth",
+            "prompt": "List two snacks that match 当地特色.",
+            "bloom_level": "K2",
+            "hsk_level": 2,
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk2_weekend_plan",
+            "description": "Describe a weekend bike trip with 至少 two sequential markers.",
+            "target_bloom_level": "K3"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to the afternoon plan and choose what happened first.",
+          "audio": {
+            "asset": "audio/hsk2/afternoon_plan.mp3",
+            "duration_seconds": 22,
+            "transcript": "今天下午我喝了一杯咖啡，然后去超市买水果。"
+          },
+          "keywords": [
+            "喝了",
+            "超市",
+            "水果"
+          ],
+          "bloom_level": "K2"
+        },
+        "translation": {
+          "source_text": "我喝了一杯咖啡，然后去超市。",
+          "target_language": "English",
+          "rubric": "Highlight the completed action with past-tense phrasing.",
+          "bloom_level": "K2",
+          "reference_translation": "I drank a cup of coffee and then went to the supermarket."
+        },
+        "dialogue_simulation": {
+          "scenario": "Ask a friend about their weekend errands and respond with 顺便 activities.",
+          "roles": [
+            "You",
+            "Friend"
+          ],
+          "bloom_level": "K3"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "hē le",
+            "chāo shì"
+          ],
+          "target_tones": [
+            1,
+            0,
+            1,
+            4
+          ],
+          "model_audio": "audio/hsk2/aspect_reference.mp3"
+        }
+      }
+    },
+    "HSK3": {
+      "default_bloom": "K3",
+      "grammar_focus": [
+        "Sequential markers 然后 / 之后",
+        "Resultative complements",
+        "Comparison with 比"
+      ],
+      "competencies": [
+        "Narrate daily routines",
+        "Discuss plans and preferences"
+      ],
+      "simple": {
+        "text_tokens": [
+          "我",
+          "早上",
+          "七点",
+          "起床",
+          "，",
+          "吃",
+          "一碗",
+          "热",
+          "粥",
+          "。",
+          "之后",
+          "骑",
+          "自行车",
+          "去",
+          "公司",
+          "，",
+          "大概",
+          "二十",
+          "分钟",
+          "到",
+          "。",
+          "下午",
+          "我",
+          "喜欢",
+          "和",
+          "同事",
+          "一起",
+          "喝",
+          "咖啡",
+          "，",
+          "聊",
+          "新的",
+          "项目",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "粥",
+            "translation": "porridge",
+            "hsk_level": 3,
+            "bloom_level": "K2",
+            "notes": "Breakfast noun."
+          },
+          {
+            "token": "之后",
+            "translation": "after",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Sequential adverb."
+          },
+          {
+            "token": "自行车",
+            "translation": "bicycle",
+            "hsk_level": 2,
+            "bloom_level": "K2",
+            "notes": "Transport noun."
+          },
+          {
+            "token": "大概",
+            "translation": "approximately",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Adverb of estimation."
+          },
+          {
+            "token": "项目",
+            "translation": "project",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Work noun."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk3_seq_1",
+            "prompt": "Reorder the sentences to show the correct routine using 之后 and 然后.",
+            "bloom_level": "K3",
+            "hsk_level": 3,
+            "difficulty": "analysis"
+          },
+          {
+            "id": "hsk3_vocab_1",
+            "prompt": "Use 比 to compare your commute time with a friend's.",
+            "bloom_level": "K4",
+            "hsk_level": 3,
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk3_task_plan",
+            "description": "Describe tomorrow's plan using 至少 three sequential markers.",
+            "target_bloom_level": "K4"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "周末",
+          "我",
+          "常常",
+          "和",
+          "朋友",
+          "去",
+          "郊外",
+          "徒步",
+          "，",
+          "感受",
+          "清新的",
+          "空气",
+          "。",
+          "如果",
+          "天气",
+          "晴朗",
+          "，",
+          "我们",
+          "会",
+          "在",
+          "山顶",
+          "讨论",
+          "新的",
+          "创业",
+          "想法",
+          "，",
+          "并且",
+          "比较",
+          "不同",
+          "的",
+          "解决方案",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "郊外",
+            "translation": "outskirts/suburbs",
+            "hsk_level": 4,
+            "bloom_level": "K4",
+            "notes": "Geography noun."
+          },
+          {
+            "token": "徒步",
+            "translation": "to hike",
+            "hsk_level": 4,
+            "bloom_level": "K4",
+            "notes": "Activity verb."
+          },
+          {
+            "token": "创业",
+            "translation": "to start a business",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Entrepreneurship vocabulary."
+          },
+          {
+            "token": "解决方案",
+            "translation": "solutions",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Abstract noun."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk3_broad_comp",
+            "prompt": "Summarise the business discussion in two sentences using 并且 and 比较.",
+            "bloom_level": "K4",
+            "hsk_level": 4,
+            "difficulty": "synthesis"
+          },
+          {
+            "id": "hsk3_collocation",
+            "prompt": "Identify one collocation with 创业 and explain its nuance.",
+            "bloom_level": "K5",
+            "hsk_level": 5,
+            "difficulty": "evaluation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk3_task_pitch",
+            "description": "Create a short pitch comparing two 创业 ideas and their 解决方案.",
+            "target_bloom_level": "K5"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to a daily routine and identify which activity happened 之后.",
+          "audio": {
+            "asset": "audio/hsk3/routine.mp3",
+            "duration_seconds": 28,
+            "transcript": "我早上七点起床，吃一碗热粥。之后骑自行车去公司，大概二十分钟到。"
+          },
+          "keywords": [
+            "之后",
+            "骑自行车",
+            "二十分钟"
+          ],
+          "bloom_level": "K3"
+        },
+        "translation": {
+          "source_text": "我之后骑自行车去公司。",
+          "target_language": "English",
+          "rubric": "Use a sequential adverb like 'after that'.",
+          "bloom_level": "K3",
+          "reference_translation": "After that I rode my bicycle to the office."
+        },
+        "dialogue_simulation": {
+          "scenario": "Discuss weekend hiking plans and compare commute times with a peer.",
+          "roles": [
+            "You",
+            "Colleague"
+          ],
+          "bloom_level": "K4"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "qí zì xíng chē",
+            "chuàng yè"
+          ],
+          "target_tones": [
+            2,
+            4,
+            2,
+            2,
+            2,
+            1
+          ],
+          "model_audio": "audio/hsk3/commute_reference.mp3"
+        }
+      }
+    },
+    "HSK4": {
+      "default_bloom": "K4",
+      "grammar_focus": [
+        "Complex result complements",
+        "Concessive structures 虽然…但是…",
+        "Topic-comment sentences"
+      ],
+      "competencies": [
+        "Report experiences",
+        "Contrast alternatives"
+      ],
+      "simple": {
+        "text_tokens": [
+          "虽然",
+          "下雨",
+          "，",
+          "我们",
+          "还是",
+          "按时",
+          "完成",
+          "了",
+          "项目",
+          "，",
+          "客户",
+          "对",
+          "结果",
+          "非常",
+          "满意",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "按时",
+            "translation": "on time",
+            "hsk_level": 4,
+            "bloom_level": "K4",
+            "notes": "Adverb."
+          },
+          {
+            "token": "完成",
+            "translation": "to complete",
+            "hsk_level": 3,
+            "bloom_level": "K3",
+            "notes": "Verb."
+          },
+          {
+            "token": "客户",
+            "translation": "client",
+            "hsk_level": 4,
+            "bloom_level": "K4",
+            "notes": "Professional noun."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk4_concession",
+            "prompt": "Explain how 虽然…但是… frames contrast in the report.",
+            "bloom_level": "K4",
+            "hsk_level": 4,
+            "difficulty": "analysis"
+          },
+          {
+            "id": "hsk4_result",
+            "prompt": "Identify the result complement in 完成了项目.",
+            "bloom_level": "K3",
+            "hsk_level": 3,
+            "difficulty": "understanding"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk4_retrospective",
+            "description": "Write a short retrospective highlighting a challenge and resolution.",
+            "target_bloom_level": "K4"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "面对",
+          "突发",
+          "需求",
+          "，",
+          "团队",
+          "不仅",
+          "调整",
+          "了",
+          "排期",
+          "，",
+          "还",
+          "主动",
+          "提出",
+          "了",
+          "替代",
+          "方案",
+          "，",
+          "确保",
+          "交付",
+          "质量",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "突发",
+            "translation": "sudden",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Adjective."
+          },
+          {
+            "token": "排期",
+            "translation": "scheduling",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Noun."
+          },
+          {
+            "token": "替代方案",
+            "translation": "alternative plan",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Phrase."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk4_policy",
+            "prompt": "Design an alternative plan using 不仅…还… pattern.",
+            "bloom_level": "K5",
+            "hsk_level": 5,
+            "difficulty": "synthesis"
+          },
+          {
+            "id": "hsk4_topic",
+            "prompt": "Rephrase the passage as a topic-comment sentence.",
+            "bloom_level": "K4",
+            "hsk_level": 4,
+            "difficulty": "transformation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk4_briefing",
+            "description": "Draft a client briefing with concessions and proposed solutions.",
+            "target_bloom_level": "K5"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to the project update and mark whether the client was satisfied.",
+          "audio": {
+            "asset": "audio/hsk4/project_update.mp3",
+            "duration_seconds": 32,
+            "transcript": "虽然下雨，我们还是按时完成了项目，客户对结果非常满意。"
+          },
+          "keywords": [
+            "虽然",
+            "按时",
+            "满意"
+          ],
+          "bloom_level": "K4"
+        },
+        "translation": {
+          "source_text": "虽然下雨，我们还是按时完成了项目。",
+          "target_language": "English",
+          "rubric": "Express concession with 'although' and perseverance.",
+          "bloom_level": "K4",
+          "reference_translation": "Although it rained, we still finished the project on time."
+        },
+        "dialogue_simulation": {
+          "scenario": "Role-play a stand-up meeting reporting risks and mitigation actions.",
+          "roles": [
+            "Team lead",
+            "Stakeholder"
+          ],
+          "bloom_level": "K5"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "àn shí",
+            "tì dài"
+          ],
+          "target_tones": [
+            4,
+            2,
+            4,
+            4
+          ],
+          "model_audio": "audio/hsk4/project_reference.mp3"
+        }
+      }
+    },
+    "HSK5": {
+      "default_bloom": "K5",
+      "grammar_focus": [
+        "Rhetorical questions",
+        "Idiomatic connectors",
+        "Complex aspect markers"
+      ],
+      "competencies": [
+        "Debate abstract topics",
+        "Evaluate arguments"
+      ],
+      "simple": {
+        "text_tokens": [
+          "当",
+          "我们",
+          "讨论",
+          "城市",
+          "发展",
+          "时",
+          "，",
+          "应该",
+          "考虑",
+          "文化",
+          "遗产",
+          "如何",
+          "影响",
+          "居民",
+          "的",
+          "归属感",
+          "。",
+          "保留",
+          "历史",
+          "建筑",
+          "不仅",
+          "有助于",
+          "吸引",
+          "游客",
+          "，",
+          "也",
+          "提醒",
+          "我们",
+          "珍惜",
+          "共同",
+          "记忆",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "文化遗产",
+            "translation": "cultural heritage",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Abstract noun."
+          },
+          {
+            "token": "归属感",
+            "translation": "sense of belonging",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Emotion noun."
+          },
+          {
+            "token": "有助于",
+            "translation": "to contribute to",
+            "hsk_level": 4,
+            "bloom_level": "K4",
+            "notes": "Verb phrase."
+          },
+          {
+            "token": "珍惜",
+            "translation": "to cherish",
+            "hsk_level": 4,
+            "bloom_level": "K4",
+            "notes": "Attitude verb."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk5_arg_1",
+            "prompt": "Identify the claim and supporting evidence in the paragraph.",
+            "bloom_level": "K5",
+            "hsk_level": 5,
+            "difficulty": "evaluation"
+          },
+          {
+            "id": "hsk5_vocab_1",
+            "prompt": "Use 不仅……也…… to draft a new supporting sentence.",
+            "bloom_level": "K4",
+            "hsk_level": 4,
+            "difficulty": "application"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk5_task_editorial",
+            "description": "Write an editorial paragraph debating cultural preservation policies.",
+            "target_bloom_level": "K6"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "面对",
+          "全球化",
+          "的",
+          "浪潮",
+          "，",
+          "城市",
+          "规划者",
+          "是否",
+          "能够",
+          "在",
+          "创新",
+          "与",
+          "传统",
+          "之间",
+          "找到",
+          "动态",
+          "平衡",
+          "？",
+          "许多",
+          "案例",
+          "表明",
+          "，",
+          "若",
+          "忽视",
+          "地方",
+          "叙事",
+          "，",
+          "居民",
+          "认同",
+          "可能",
+          "逐渐",
+          "瓦解",
+          "。",
+          "因此",
+          "，",
+          "决策者",
+          "需要",
+          "设定",
+          "包容",
+          "的",
+          "评价",
+          "指标",
+          "，",
+          "以便",
+          "平衡",
+          "公共",
+          "利益",
+          "与",
+          "商业",
+          "诉求",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "动态平衡",
+            "translation": "dynamic balance",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Abstract collocation."
+          },
+          {
+            "token": "叙事",
+            "translation": "narrative",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Academic noun."
+          },
+          {
+            "token": "瓦解",
+            "translation": "disintegrate",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Advanced verb."
+          },
+          {
+            "token": "诉求",
+            "translation": "appeal/demand",
+            "hsk_level": 5,
+            "bloom_level": "K5",
+            "notes": "Policy vocabulary."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk5_discourse",
+            "prompt": "Analyse the rhetorical question and propose an alternative framing.",
+            "bloom_level": "K6",
+            "hsk_level": 6,
+            "difficulty": "creation"
+          },
+          {
+            "id": "hsk5_metrics",
+            "prompt": "Design two evaluation metrics balancing 创新 and 传统.",
+            "bloom_level": "K6",
+            "hsk_level": 6,
+            "difficulty": "synthesis"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk5_policy_brief",
+            "description": "Draft a policy brief with recommendations that balance 公共利益 and 商业诉求.",
+            "target_bloom_level": "K6"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Listen to the policy discussion and judge whether preservation was prioritised.",
+          "audio": {
+            "asset": "audio/hsk5/policy_discussion.mp3",
+            "duration_seconds": 40,
+            "transcript": "当我们讨论城市发展时，应该考虑文化遗产如何影响居民的归属感。保留历史建筑不仅有助于吸引游客，也提醒我们珍惜共同记忆。"
+          },
+          "keywords": [
+            "文化遗产",
+            "归属感",
+            "珍惜"
+          ],
+          "bloom_level": "K5"
+        },
+        "translation": {
+          "source_text": "面对全球化的浪潮，城市规划者需要找到动态平衡。",
+          "target_language": "English",
+          "rubric": "Convey rhetorical nuance with 'in the face of' and 'dynamic balance'.",
+          "bloom_level": "K6",
+          "reference_translation": "In the face of globalization, city planners need to find a dynamic balance."
+        },
+        "dialogue_simulation": {
+          "scenario": "Debate a council member about balancing innovation and tradition.",
+          "roles": [
+            "Planner",
+            "Council member"
+          ],
+          "bloom_level": "K6"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "dòng tài píng héng",
+            "sù qiú"
+          ],
+          "target_tones": [
+            4,
+            4,
+            2,
+            2,
+            2,
+            2
+          ],
+          "model_audio": "audio/hsk5/policy_reference.mp3"
+        }
+      }
+    },
+    "HSK6": {
+      "default_bloom": "K6",
+      "grammar_focus": [
+        "Classical allusions",
+        "Layered causative clauses",
+        "Hypothetical discourse markers"
+      ],
+      "competencies": [
+        "Critique policy frameworks",
+        "Synthesize cross-cultural viewpoints"
+      ],
+      "simple": {
+        "text_tokens": [
+          "若",
+          "忽视",
+          "社区",
+          "声音",
+          "，",
+          "政策",
+          "创新",
+          "终将",
+          "失去",
+          "根基",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "终将",
+            "translation": "will eventually",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Adverbial."
+          },
+          {
+            "token": "根基",
+            "translation": "foundation",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Metaphorical noun."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk6_allusion",
+            "prompt": "Explain the implied consequence in 若忽视社区声音，政策创新终将失去根基.",
+            "bloom_level": "K6",
+            "hsk_level": 6,
+            "difficulty": "evaluation"
+          },
+          {
+            "id": "hsk6_clause",
+            "prompt": "Rewrite the sentence using 假如 to test hypothetical framing.",
+            "bloom_level": "K6",
+            "hsk_level": 6,
+            "difficulty": "creation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk6_manifesto",
+            "description": "Draft a manifesto paragraph referencing community narratives.",
+            "target_bloom_level": "K6"
+          }
+        ]
+      },
+      "broad": {
+        "text_tokens": [
+          "纵然",
+          "数据",
+          "显示",
+          "改革",
+          "成效",
+          "显著",
+          "，",
+          "若",
+          "忽略",
+          "弱势",
+          "群体",
+          "的",
+          "集体",
+          "记忆",
+          "与",
+          "创伤",
+          "，",
+          "成果",
+          "终究",
+          "难以",
+          "维系",
+          "。"
+        ],
+        "vocab": [
+          {
+            "token": "纵然",
+            "translation": "even if",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Concessive connector."
+          },
+          {
+            "token": "弱势群体",
+            "translation": "vulnerable groups",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Sociology noun."
+          },
+          {
+            "token": "创伤",
+            "translation": "trauma",
+            "hsk_level": 6,
+            "bloom_level": "K6",
+            "notes": "Psychology noun."
+          }
+        ],
+        "exercises": [
+          {
+            "id": "hsk6_synthesis",
+            "prompt": "Propose a mitigating clause acknowledging 弱势群体.",
+            "bloom_level": "K6",
+            "hsk_level": 6,
+            "difficulty": "creation"
+          },
+          {
+            "id": "hsk6_discourse",
+            "prompt": "Analyse how 集体记忆 functions rhetorically.",
+            "bloom_level": "K6",
+            "hsk_level": 6,
+            "difficulty": "evaluation"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "hsk6_position",
+            "description": "Compose a policy position citing both data trends and collective memory.",
+            "target_bloom_level": "K6"
+          }
+        ]
+      },
+      "prompts": {
+        "listening_comprehension": {
+          "instructions": "Interpret the policy critique and decide which value is emphasised.",
+          "audio": {
+            "asset": "audio/hsk6/community_voice.mp3",
+            "duration_seconds": 44,
+            "transcript": "若忽视社区声音，政策创新终将失去根基。纵然数据显示改革成效显著，若忽略弱势群体的集体记忆与创伤，成果终究难以维系。"
+          },
+          "keywords": [
+            "社区声音",
+            "弱势群体",
+            "集体记忆"
+          ],
+          "bloom_level": "K6"
+        },
+        "translation": {
+          "source_text": "纵然数据显示改革成效显著，也不能忽略弱势群体的创伤。",
+          "target_language": "English",
+          "rubric": "Preserve the concessive contrast with 'even though'.",
+          "bloom_level": "K6",
+          "reference_translation": "Even though the data shows significant results, we must not ignore the trauma of vulnerable groups."
+        },
+        "dialogue_simulation": {
+          "scenario": "Simulate a cross-cultural policy forum debating data ethics versus community narratives.",
+          "roles": [
+            "Moderator",
+            "Advocate"
+          ],
+          "bloom_level": "K6"
+        },
+        "pronunciation": {
+          "focus_syllables": [
+            "zòng rán",
+            "ruò shì qún tǐ"
+          ],
+          "target_tones": [
+            4,
+            2,
+            4,
+            4,
+            2,
+            2,
+            3,
+            3
+          ],
+          "model_audio": "audio/hsk6/community_reference.mp3"
+        }
+      }
+    }
+  }
+}

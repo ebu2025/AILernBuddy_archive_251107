@@ -1,0 +1,135 @@
+{
+  "domain": "language.german",
+  "version": "1.0",
+  "updated_at": "2024-05-30",
+  "skills": [
+    {
+      "id": "de-cefr-a1-intro",
+      "name": "CEFR A1 Begrüßung",
+      "module": "german_a1",
+      "bloom_level": "K1",
+      "focus": ["Verbzweitstellung", "Fragepronomen", "Grundwortschatz"],
+      "attributes": {
+        "cefr_band": "A1",
+        "word_classes": ["Pronomen", "Verben", "Ortsangaben"],
+        "sentence_patterns": ["Ich bin …", "Wie heißt du?"],
+        "can_dos": ["Sich vorstellen", "Nach Herkunft fragen"]
+      },
+      "example_tasks": [
+        "Formuliere einen Dialog mit Hallo, Wie heißt du? und Ich komme aus ….",
+        "Markiere das Verb in Position zwei für drei Beispielsätze."
+      ]
+    },
+    {
+      "id": "de-cefr-a2-modals",
+      "name": "CEFR A2 Modalgebrauch",
+      "module": "german_a2",
+      "bloom_level": "K2",
+      "focus": ["Modalverben", "Satzklammer", "Trennbare Verben"],
+      "attributes": {
+        "cefr_band": "A2",
+        "bloom_reference": "K2",
+        "sentence_patterns": ["Ich muss …", "Ich kann …"],
+        "dialogue_scenarios": ["Termin absagen", "Freizeitplanung"]
+      },
+      "example_tasks": [
+        "Schreibe eine Nachricht, in der du einen Termin absagen musst.",
+        "Unterstreiche das trennbare Verb in Wir kaufen am Samstag ein."
+      ]
+    },
+    {
+      "id": "de-cefr-b1-narrative",
+      "name": "CEFR B1 Erzählstruktur",
+      "module": "german_b1",
+      "bloom_level": "K3",
+      "focus": ["Relativsätze", "Indirekte Fragen", "Präteritum"],
+      "attributes": {
+        "cefr_band": "B1",
+        "assessment_prompts": ["Relative clause gap", "Indirect question transformation"],
+        "can_dos": ["Geschichten erzählen", "Informationen erfragen"]
+      },
+      "example_tasks": [
+        "Erstelle eine kurze Geschichte mit mindestens einem Relativsatz.",
+        "Formuliere eine indirekte Frage zu Warum ist der Zug abgefahren?."
+      ]
+    },
+    {
+      "id": "de-cefr-b2-argument",
+      "name": "CEFR B2 Argumentation",
+      "module": "german_b2",
+      "bloom_level": "K4",
+      "focus": ["Konjunktiv II", "Passiv", "Diskursmarker"],
+      "attributes": {
+        "cefr_band": "B2",
+        "lexical_sets": ["Empfehlungen", "Berichte"],
+        "sentence_patterns": ["Ich würde vorschlagen …", "Das Problem wird …"],
+        "dialogue_scenarios": ["Projektberatung", "Risikobewertung"]
+      },
+      "example_tasks": [
+        "Schreibe einen Rat an ein Projektteam mit zwei Konjunktiv-II-Sätzen.",
+        "Wandle einen Passivsatz in einen Aktivsatz um."
+      ]
+    },
+    {
+      "id": "de-cefr-c1-briefing",
+      "name": "CEFR C1 Strategisches Briefing",
+      "module": "german_c1",
+      "bloom_level": "K5",
+      "focus": ["Nominalisierung", "Berichtete Rede", "Formelle Register"],
+      "attributes": {
+        "cefr_band": "C1",
+        "bloom_reference": "K5",
+        "dialogue_scenarios": ["Führungskräftemeeting", "Stakeholder-Briefing"],
+        "audio_prompts": ["c1_briefing"]
+      },
+      "example_tasks": [
+        "Fasse eine Vorstandssitzung in berichteter Rede zusammen.",
+        "Ersetze einen verbalen Ausdruck durch eine Nominalisierung."
+      ]
+    },
+    {
+      "id": "de-cefr-c2-rhetoric",
+      "name": "CEFR C2 Rhetorische Nuancen",
+      "module": "german_c2",
+      "bloom_level": "K6",
+      "focus": ["Feinmodale Bedeutungen", "Registerwechsel", "Komplexe Einbettung"],
+      "attributes": {
+        "cefr_band": "C2",
+        "bloom_reference": "K6",
+        "word_classes": ["Modalpartikeln", "Nominalphrasen"],
+        "dialogue_scenarios": ["Pressekonferenz", "Keynote"]
+      },
+      "example_tasks": [
+        "Bewerte den Unterschied zwischen sollte und müsste in einer Empfehlung.",
+        "Gestalte eine Einleitung für eine zweisprachige Pressekonferenz."
+      ]
+    }
+  ],
+  "sequencing": [
+    {"from": "de-cefr-a1-intro", "to": "de-cefr-a2-modals", "relation": "prerequisite", "weight": 1.0},
+    {"from": "de-cefr-a2-modals", "to": "de-cefr-b1-narrative", "relation": "prerequisite", "weight": 1.1},
+    {"from": "de-cefr-b1-narrative", "to": "de-cefr-b2-argument", "relation": "prerequisite", "weight": 1.1},
+    {"from": "de-cefr-b2-argument", "to": "de-cefr-c1-briefing", "relation": "prerequisite", "weight": 1.2},
+    {"from": "de-cefr-c1-briefing", "to": "de-cefr-c2-rhetoric", "relation": "prerequisite", "weight": 1.3}
+  ],
+  "resources": [
+    {
+      "skill_id": "de-cefr-a1-intro",
+      "items": [
+        {"resource_id": "de-a1-intro-audio", "title": "A1 Begrüßungsaufnahmen", "uri": "audio/cefr/a1_intro.mp3", "modality": "audio", "description": "Dialoge für persönliche Vorstellungen."}
+      ]
+    },
+    {
+      "skill_id": "de-cefr-b2-argument",
+      "items": [
+        {"resource_id": "de-b2-templates", "title": "Beratungs-Redemittel", "uri": "https://example.org/german/b2-phrases", "modality": "reference", "description": "Formulierungen für Empfehlungen im Projektumfeld."}
+      ]
+    },
+    {
+      "skill_id": "de-cefr-c2-rhetoric",
+      "items": [
+        {"resource_id": "de-c2-press", "title": "Pressekonferenz-Skripte", "uri": "audio/cefr/c2_keynote.mp3", "modality": "audio", "description": "Modelltexte für Registerwechsel."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "domain": "language.mandarin",
+  "version": "1.0",
+  "updated_at": "2024-05-30",
+  "skills": [
+    {
+      "id": "zh-hsk1-lexis",
+      "name": "HSK1 Grundwortschatz",
+      "module": "mandarin_hsk1",
+      "bloom_level": "K1",
+      "focus": ["SVO-Grundstruktur", "Begrüßungen", "Verb 喜欢"],
+      "attributes": {
+        "hsk_band": "HSK1",
+        "core_vocab": ["你好", "谢谢", "喜欢", "米饭"],
+        "grammar_patterns": ["A 是 B", "A 喜欢 B"]
+      },
+      "example_tasks": [
+        "Formuliere zwei Begrüßungsdialoge, die 吗-Fragen enthalten.",
+        "Ordne Bilder den Phrasen 我喜欢喝茶 und 你好吗 zu."
+      ]
+    },
+    {
+      "id": "zh-hsk2-aspect",
+      "name": "HSK2 Aspekt & Sequenz",
+      "module": "mandarin_hsk2",
+      "bloom_level": "K2",
+      "focus": ["了 als Aspektmarker", "Sequenzadverbien", "Maßeinheiten"],
+      "attributes": {
+        "hsk_band": "HSK2",
+        "bloom_reference": "K2",
+        "grammar_patterns": ["先…再…", "Verb + 了 + Objekt"],
+        "can_dos": ["Einkäufe schildern", "Tagesabläufe erzählen"]
+      },
+      "example_tasks": [
+        "Beschreibe einen Nachmittag mit mindestens zwei 了-Konstruktionen.",
+        "Ordne Getränke passenden Zähleinheitswörtern wie 杯 oder 瓶 zu."
+      ]
+    },
+    {
+      "id": "zh-hsk3-discourse",
+      "name": "HSK3 Diskursmarker",
+      "module": "mandarin_hsk3",
+      "bloom_level": "K3",
+      "focus": ["之后 / 然后", "比较 mit 比", "Resultative Ergänzungen"],
+      "attributes": {
+        "hsk_band": "HSK3",
+        "progression_links": ["lexicon_mode:simple", "lexicon_mode:broad"],
+        "can_dos": ["Tagesabläufe vergleichen", "Pläne rechtfertigen"],
+        "assessment_prompts": ["Sequenz wiedergeben", "Vergleichssätze bilden"]
+      },
+      "example_tasks": [
+        "Erstelle einen Wochenendplan mit drei 然后-Sequenzen.",
+        "Vergleiche zwei Verkehrsmittel mit 比 und begründe deine Wahl."
+      ]
+    },
+    {
+      "id": "zh-hsk4-argument",
+      "name": "HSK4 Argumentationsstrukturen",
+      "module": "mandarin_hsk4",
+      "bloom_level": "K4",
+      "focus": ["Konzession 虽然…但是…", "Nicht nur … sondern auch", "Topic-Comment"],
+      "attributes": {
+        "hsk_band": "HSK4",
+        "bloom_reference": "K4",
+        "competency_threads": ["Projektstatus schildern", "Risiken kontextualisieren"],
+        "feedback_categories": ["Kohäsion", "Kontrastmarker"]
+      },
+      "example_tasks": [
+        "Schreibe eine Projektmeldung mit 虽然…但是….",
+        "Kennzeichne Topic-Comment-Strukturen in einem kurzen Bericht."
+      ]
+    },
+    {
+      "id": "zh-hsk5-rhetoric",
+      "name": "HSK5 Rhetorik & Politik",
+      "module": "mandarin_hsk5",
+      "bloom_level": "K5",
+      "focus": ["Rhetorische Fragen", "Idiome", "政策-Diskurs"],
+      "attributes": {
+        "hsk_band": "HSK5",
+        "bloom_reference": "K5",
+        "lexical_spans": ["文化遗产", "归属感", "动态平衡"],
+        "can_dos": ["Debatten führen", "Politische Empfehlungen schreiben"]
+      },
+      "example_tasks": [
+        "Analysiere eine rhetorische Frage und formuliere eine Alternative.",
+        "Verfasse ein Positionspapier, das mindestens zwei 高级词汇 enthält."
+      ]
+    },
+    {
+      "id": "zh-hsk6-discourse",
+      "name": "HSK6 Diskurskritik",
+      "module": "mandarin_hsk6",
+      "bloom_level": "K6",
+      "focus": ["Klassische Bezüge", "Mehrgliedrige Kausalsätze", "Gesellschaftliche Narrative"],
+      "attributes": {
+        "hsk_band": "HSK6",
+        "bloom_reference": "K6",
+        "competency_threads": ["Politikfolgen bewerten", "Community-Stimmen einbinden"],
+        "audio_prompts": ["community_voice", "policy_forum"]
+      },
+      "example_tasks": [
+        "Bewerte einen Policy-Entwurf mit Bezug auf 弱势群体.",
+        "Verfasse ein Essay, das 数据 与 集体记忆 verknüpft."
+      ]
+    }
+  ],
+  "sequencing": [
+    {"from": "zh-hsk1-lexis", "to": "zh-hsk2-aspect", "relation": "prerequisite", "weight": 1.0},
+    {"from": "zh-hsk2-aspect", "to": "zh-hsk3-discourse", "relation": "prerequisite", "weight": 1.1},
+    {"from": "zh-hsk3-discourse", "to": "zh-hsk4-argument", "relation": "prerequisite", "weight": 1.1},
+    {"from": "zh-hsk4-argument", "to": "zh-hsk5-rhetoric", "relation": "prerequisite", "weight": 1.2},
+    {"from": "zh-hsk5-rhetoric", "to": "zh-hsk6-discourse", "relation": "prerequisite", "weight": 1.3}
+  ],
+  "resources": [
+    {
+      "skill_id": "zh-hsk1-lexis",
+      "items": [
+        {"resource_id": "zh-hsk1-audio", "title": "HSK1 Begrüßungen Audio", "uri": "audio/hsk1/greeting_intro.mp3", "modality": "audio", "description": "Authentische Dialoge für 吗-Fragen."}
+      ]
+    },
+    {
+      "skill_id": "zh-hsk4-argument",
+      "items": [
+        {"resource_id": "zh-hsk4-briefing", "title": "Projektstatus Vorlage", "uri": "https://example.org/mandarin/hsk4-briefing", "modality": "template", "description": "Strukturierte Vorlage für 虽然…但是… Meldungen."}
+      ]
+    },
+    {
+      "skill_id": "zh-hsk6-discourse",
+      "items": [
+        {"resource_id": "zh-hsk6-forum", "title": "Policy Forum Clips", "uri": "audio/hsk6/community_voice.mp3", "modality": "audio", "description": "Diskursanalysen zu 社区声音."}
+      ]
+    }
+  ]
+}
