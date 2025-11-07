@@ -31,6 +31,7 @@ def test_privacy_export_and_delete(temp_db):
     db.upsert_mastery(user_id, "math.algebra", 0.42)
     db.upsert_bloom_progress(user_id, "math", "K2")
     db.record_llm_metric(user_id, "model-x", "chat.v1", app.CHAT_PROMPT_VARIANT, 1200, 210, 180)
+    db.upsert_subject("math", "Mathematics", "math")
     db.log_learning_event(user_id, "math", "quiz", score=0.8, details={"skill": "math.algebra"})
     db.log_journey_update(user_id, "suggest_next_item", {"skill": "math.algebra", "reason": "Practice quadratic functions"})
     db.record_chat_ops(user_id, "math", "Question?", "Answer!", {}, [], [])
@@ -50,6 +51,9 @@ def test_privacy_export_and_delete(temp_db):
         "INSERT INTO xapi_statements(user_id, verb, object_id) VALUES (?,?,?)",
         (user_id, "verb", "obj"),
     )
+    db.upsert_module("module-1", "math", "Test module", "K1", "Test description")
+    db.upsert_lesson("lesson-1", "module-1", "Test lesson", "Test summary")
+    db.upsert_activity("activity-1", "lesson-1", "quiz", "Test activity", target_level="K1")
     db.record_quiz_attempt(user_id, "math", "activity-1", 4, 5)
     db.save_assessment_result(_make_assessment(user_id))
 

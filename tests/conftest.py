@@ -21,5 +21,9 @@ def temp_db(monkeypatch, tmp_path):
     except ImportError:
         pass
 
+    # Reset the connection pool for each test
+    db._pool = db.SQLiteConnectionPool(str(db_path), max_connections=10)
+    # Reset the global pool reference
+    db._pool = db.SQLiteConnectionPool(str(db_path), max_connections=10)
     db.init()
     return str(db_path)
