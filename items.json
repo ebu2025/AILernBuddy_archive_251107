@@ -1,0 +1,351 @@
+[
+  {
+    "id": "bpmn-gateway-xor-001",
+    "domain": "bpmn",
+    "skill_id": "bpmn.gateways.xor",
+    "bloom_level": "K2",
+    "stimulus": "A process needs to split based on an approval decision. Which gateway should be used and why?",
+    "answer_key": "Exclusive Gateway",
+    "rubric_id": null,
+    "difficulty": -0.1,
+    "elo_target": 975.0,
+    "metadata": {
+      "bpmn_element": "gateway",
+      "choices": [
+        "Parallel Gateway",
+        "Exclusive Gateway",
+        "Event-Based Gateway"
+      ],
+      "tags": [
+        "decision",
+        "approval",
+        "xor"
+      ],
+      "distractor_rationales": {
+        "Parallel Gateway": "Parallel gateways route tokens down every outgoing branch and ignore conditional logic, so they cannot represent an either-or approval.",
+        "Event-Based Gateway": "Event-based gateways wait for external triggers instead of evaluating the process data that drives an approval decision."
+      },
+      "item_type": "mcq"
+    },
+    "exposure_limit": 5,
+    "references": [
+      "https://www.omg.org/spec/BPMN/2.0/"
+    ]
+  },
+  {
+    "id": "bpmn-event-timer-001",
+    "domain": "bpmn",
+    "skill_id": "bpmn.events.timer",
+    "bloom_level": "K3",
+    "stimulus": "A task must wait until every Monday at 09:00 before running. Describe the BPMN construct to model this scenario.",
+    "answer_key": null,
+    "rubric_id": "BPMN_TIMER_K3",
+    "difficulty": 0.2,
+    "elo_target": 1050.0,
+    "metadata": {
+      "bpmn_element": "intermediateCatchEvent",
+      "tags": [
+        "timer",
+        "weekly",
+        "event"
+      ]
+    },
+    "exposure_limit": 4,
+    "references": [
+      "internal:kb:bpmn_timer_events"
+    ]
+  },
+  {
+    "id": "bpmn-sequence-flow-001",
+    "domain": "bpmn",
+    "skill_id": "bpmn.sequence.flow",
+    "bloom_level": "K1",
+    "stimulus": "What is the primary purpose of a sequence flow in BPMN diagrams?",
+    "answer_key": "Shows the order of activities",
+    "rubric_id": null,
+    "difficulty": -0.4,
+    "elo_target": 900.0,
+    "metadata": {
+      "bpmn_element": "sequenceFlow",
+      "tags": [
+        "basics"
+      ]
+    },
+    "exposure_limit": 6,
+    "references": [
+      "https://camunda.com/bpmn/reference/"
+    ]
+  },
+  {
+    "id": "lang-vocab-food-001",
+    "domain": "language",
+    "skill_id": "lang.vocab.food",
+    "bloom_level": "K1",
+    "stimulus": "Translate the English word \"apple\" into Spanish.",
+    "answer_key": "manzana",
+    "rubric_id": null,
+    "difficulty": -0.3,
+    "elo_target": 925.0,
+    "metadata": {
+      "cefr": "A1",
+      "tags": [
+        "fruit",
+        "translation"
+      ],
+      "language_pair": "en-es"
+    },
+    "exposure_limit": 8,
+    "references": [
+      "https://dictionary.cambridge.org/"
+    ]
+  },
+  {
+    "id": "lang-usage-present-001",
+    "domain": "language",
+    "skill_id": "lang.grammar.present_simple",
+    "bloom_level": "K3",
+    "stimulus": "Write a sentence using the present simple to describe a daily routine.",
+    "answer_key": null,
+    "rubric_id": "LANG_USAGE_K2K3",
+    "difficulty": 0.1,
+    "elo_target": 1025.0,
+    "metadata": {
+      "cefr": "A2",
+      "tags": [
+        "grammar",
+        "present_simple"
+      ]
+    },
+    "exposure_limit": 5,
+    "references": [
+      "internal:kb:present_simple_examples"
+    ]
+  },
+  {
+    "id": "lang-vocab-travel-001",
+    "domain": "language",
+    "skill_id": "lang.vocab.travel",
+    "bloom_level": "K2",
+    "stimulus": "Choose the correct word to complete the sentence: We need to go to the ______ to catch our flight.",
+    "answer_key": "airport",
+    "rubric_id": null,
+    "difficulty": 0.0,
+    "elo_target": 1000.0,
+    "metadata": {
+      "cefr": "A2",
+      "choices": [
+        "harbor",
+        "airport",
+        "station"
+      ],
+      "tags": [
+        "travel",
+        "transport"
+      ],
+      "distractor_rationales": {
+        "harbor": "A harbor is related to ships and sea travel, not to boarding an airplane.",
+        "station": "A station is typically for trains or buses, so it does not match the flight scenario."
+      },
+      "item_type": "mcq"
+    },
+    "exposure_limit": 6,
+    "references": []
+  },
+  {
+    "id": "math-arithmetic-addition-001",
+    "domain": "math",
+    "skill_id": "math.arithmetic.addition",
+    "bloom_level": "K1",
+    "stimulus": "Compute 27 + 19.",
+    "answer_key": "46",
+    "rubric_id": null,
+    "difficulty": -0.2,
+    "elo_target": 950.0,
+    "metadata": {
+      "tags": [
+        "numbers",
+        "addition"
+      ],
+      "format": "numeric"
+    },
+    "exposure_limit": 7,
+    "references": []
+  },
+  {
+    "id": "math-fractions-simplify-001",
+    "domain": "math",
+    "skill_id": "math.arithmetic.fractions",
+    "bloom_level": "K2",
+    "stimulus": "Simplify the fraction 18/24.",
+    "answer_key": "3/4",
+    "rubric_id": null,
+    "difficulty": 0.1,
+    "elo_target": 1025.0,
+    "metadata": {
+      "tags": [
+        "fractions",
+        "simplify"
+      ],
+      "format": "numeric"
+    },
+    "exposure_limit": 6,
+    "references": []
+  },
+  {
+    "id": "math-linear-equation-001",
+    "domain": "math",
+    "skill_id": "math.algebra.linear_equations",
+    "bloom_level": "K3",
+    "stimulus": "Solve for x: 2x + 5 = 17.",
+    "answer_key": "6",
+    "rubric_id": null,
+    "difficulty": 0.3,
+    "elo_target": 1075.0,
+    "metadata": {
+      "tags": [
+        "algebra",
+        "equations"
+      ],
+      "format": "numeric"
+    },
+    "exposure_limit": 5,
+    "references": [
+      "internal:kb:linear_equations_basics"
+    ]
+  },
+  {
+    "id": "bpmn-continuous-improvement-001",
+    "domain": "bpmn",
+    "skill_id": "bpmn.optimization.analysis",
+    "bloom_level": "K5",
+    "stimulus": "Review a process map with cycle-time metrics and identify which gateway configuration should be reworked to eliminate the largest bottleneck. Justify your recommendation.",
+    "answer_key": "Rework the event-based gateway before invoice approval to consolidate duplicate wait states.",
+    "rubric_id": null,
+    "difficulty": 0.6,
+    "elo_target": 1150.0,
+    "metadata": {
+      "tags": [
+        "analysis",
+        "optimization",
+        "bottleneck"
+      ],
+      "format": "constructed"
+    },
+    "exposure_limit": 4,
+    "references": [
+      "internal:kb:bpmn_optimization_playbook"
+    ]
+  },
+  {
+    "id": "bpmn-innovation-redesign-001",
+    "domain": "bpmn",
+    "skill_id": "bpmn.design.innovation",
+    "bloom_level": "K6",
+    "stimulus": "Design a new orchestration pattern that blends BPMN events and RPA bots to support real-time escalations in a distributed claims process.",
+    "answer_key": "As long as the model integrates escalation boundary events with bot tasks and human review swimlanes, the creative solution is acceptable.",
+    "rubric_id": null,
+    "difficulty": 0.8,
+    "elo_target": 1200.0,
+    "metadata": {
+      "tags": [
+        "design",
+        "innovation",
+        "rpa"
+      ],
+      "format": "constructed"
+    },
+    "exposure_limit": 3,
+    "references": [
+      "internal:kb:claims_modernization_case_study"
+    ]
+  },
+  {
+    "id": "math-proof-evaluation-001",
+    "domain": "math",
+    "skill_id": "math.analysis.proof",
+    "bloom_level": "K5",
+    "stimulus": "A classmate proposes a proof that all even numbers greater than 2 are prime because they can be written as 2n. Evaluate the proof, identify its flaw, and provide a corrected argument.",
+    "answer_key": "The argument is invalid because representing a number as 2n does not prove primality; show a counterexample and explain properties of even composites.",
+    "rubric_id": null,
+    "difficulty": 0.65,
+    "elo_target": 1162.5,
+    "metadata": {
+      "tags": [
+        "proof",
+        "evaluation"
+      ],
+      "format": "constructed"
+    },
+    "exposure_limit": 4,
+    "references": [
+      "internal:kb:proof_strategies"
+    ]
+  },
+  {
+    "id": "math-modeling-scenario-001",
+    "domain": "math",
+    "skill_id": "math.modeling.optimization",
+    "bloom_level": "K6",
+    "stimulus": "Formulate and justify a mathematical model that helps a city allocate emergency response teams using both travel-time data and predicted incident severity.",
+    "answer_key": "Models that balance minimization of response time with weighting for severity are acceptable if assumptions and constraints are explicit.",
+    "rubric_id": null,
+    "difficulty": 0.85,
+    "elo_target": 1212.5,
+    "metadata": {
+      "tags": [
+        "modeling",
+        "optimization",
+        "scenario"
+      ],
+      "format": "constructed"
+    },
+    "exposure_limit": 3,
+    "references": [
+      "internal:kb:operations_research_intro"
+    ]
+  },
+  {
+    "id": "language-rhetorical-analysis-001",
+    "domain": "language",
+    "skill_id": "language.advanced.rhetoric",
+    "bloom_level": "K5",
+    "stimulus": "Analyze a persuasive speech and determine how ethos, pathos, and logos are balanced to influence the audience. Cite specific lines to defend your evaluation.",
+    "answer_key": "Responses must dissect all three rhetorical appeals with textual evidence and assess how the balance affects persuasion.",
+    "rubric_id": null,
+    "difficulty": 0.6,
+    "elo_target": 1150.0,
+    "metadata": {
+      "tags": [
+        "analysis",
+        "rhetoric"
+      ],
+      "format": "constructed"
+    },
+    "exposure_limit": 4,
+    "references": [
+      "internal:kb:rhetorical_strategies"
+    ]
+  },
+  {
+    "id": "language-cultural-creation-001",
+    "domain": "language",
+    "skill_id": "language.advanced.integration",
+    "bloom_level": "K6",
+    "stimulus": "Compose a bilingual commentary that reframes a traditional folktale to address a current social issue while preserving key cultural motifs.",
+    "answer_key": "Creative responses must maintain recognizable motifs, integrate bilingual transitions, and articulate the modern issue with cultural sensitivity.",
+    "rubric_id": null,
+    "difficulty": 0.82,
+    "elo_target": 1205.0,
+    "metadata": {
+      "tags": [
+        "creation",
+        "culture"
+      ],
+      "format": "constructed"
+    },
+    "exposure_limit": 3,
+    "references": [
+      "internal:kb:translanguaging_guidelines"
+    ]
+  }
+]
