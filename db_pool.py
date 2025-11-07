@@ -9,12 +9,12 @@ from typing import Generator
 logger = logging.getLogger(__name__)
 
 class SQLiteConnectionPool:
-    """Thread-safe SQLite connection pool."""
-    
+    """Thread-safe SQLite connection pool with thread-local connections."""
+
     def __init__(self, database: str, max_connections: int = 5):
         self.database = database
         self.max_connections = max_connections
-        self._pool: Queue[sqlite3.Connection] = Queue(maxsize=max_connections)
+        self._local = threading.local()
         self._lock = threading.Lock()
         self._created_connections = 0
         
@@ -28,34 +28,34 @@ class SQLiteConnectionPool:
         
     @contextmanager
     def get_connection(self) -> Generator[sqlite3.Connection, None, None]:
-        """Get a connection from the pool or create a new one if needed."""
-        connection = None
-        try:
-            connection = self._pool.get(block=False)
-        except Empty:
+        """Get a thread-local connection from the pool."""
+        if not hasattr(self._local, 'connection'):
             with self._lock:
                 if self._created_connections < self.max_connections:
-                    connection = self._create_connection()
+                    self._local.connection = self._create_connection()
                     self._created_connections += 1
-                    logger.debug(f"Created new connection (total: {self._created_connections})")
+                    logger.debug(f"Created new thread-local connection (total: {self._created_connections})")
                 else:
-                    # If we've hit the limit, wait for a connection
-                    connection = self._pool.get(block=True)
-        
+                    # If we've hit the limit, wait for a connection from the pool
+                    try:
+                        self._local.connection = self._pool.get(block=True, timeout=5.0)
+                    except Empty:
+                        raise RuntimeError("Connection pool exhausted")
+
+        connection = self._local.connection
         try:
             yield connection
         finally:
             try:
                 # Reset the connection state
                 connection.rollback()
-                # Put the connection back in the pool
-                self._pool.put(connection)
             except Exception as e:
-                logger.error(f"Error returning connection to pool: {e}")
-                # If we can't return it to the pool, close it
+                logger.error(f"Error resetting connection state: {e}")
+                # If we can't reset, close and create a new one
                 try:
                     connection.close()
                     with self._lock:
                         self._created_connections -= 1
+                    delattr(self._local, 'connection')
                 except Exception:
                     pass

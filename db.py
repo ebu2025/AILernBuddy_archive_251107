@@ -255,7 +255,7 @@ def init():
             PRAGMA journal_mode=WAL;
 
             CREATE TABLE IF NOT EXISTS users (
-              user_id     TEXT PRIMARY KEY,
+              id          TEXT PRIMARY KEY,
               email       TEXT UNIQUE,
               pw_hash     TEXT NOT NULL,
               pw_salt     TEXT,
@@ -293,7 +293,7 @@ def init():
               applied_ops   TEXT,
               pending_ops   TEXT,
               created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-              FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
+              FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
             );
 
             CREATE INDEX IF NOT EXISTS idx_chat_ops_user ON chat_ops_log(user_id, created_at DESC);
@@ -870,8 +870,8 @@ def ensure_user(user_id: str):
     if not rows:
         # Minimal setup without email/password (for guests, etc.)
         _exec(
-            "INSERT INTO users(id) VALUES (?)",
-            (user_id,),
+            "INSERT INTO users(id, pw_hash) VALUES (?, ?)",
+            (user_id, ""),
         )
 
 # -------------- prompts --------------
@@ -4469,7 +4469,7 @@ def export_user_data(user_id: str) -> Dict[str, Any]:
     def _rows(sql: str, params: Iterable) -> list[Dict[str, Any]]:
         return [dict(row) for row in _query(sql, params)]
 
-    bundle["users"] = _rows("SELECT user_id, email, created_at FROM users WHERE user_id = ?", (user_id,))
+    bundle["users"] = _rows("SELECT id, email, created_at FROM users WHERE id = ?", (user_id,))
     bundle["mastery"] = _rows("SELECT * FROM mastery WHERE user_id = ?", (user_id,))
     bundle["user_progress"] = _rows("SELECT * FROM user_progress WHERE user_id = ?", (user_id,))
     bundle["bloom_score"] = _rows("SELECT * FROM bloom_score WHERE user_id = ?", (user_id,))
@@ -4665,7 +4665,7 @@ def delete_user_data(user_id: str) -> Dict[str, int]:
             counts[table] = cur.rowcount if cur is not None else 0
         cur = con.execute("DELETE FROM user_consent WHERE user_id = ?", (user_id,))
         counts["user_consent"] = cur.rowcount if cur is not None else 0
-        cur = con.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
+        cur = con.execute("DELETE FROM users WHERE id = ?", (user_id,))
         counts["users"] = cur.rowcount if cur is not None else 0
         con.commit()
     return counts
