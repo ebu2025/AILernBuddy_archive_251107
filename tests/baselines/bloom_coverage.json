@@ -1,0 +1,78 @@
+{
+  "high_levels": [
+    "K5",
+    "K6"
+  ],
+  "domains": {
+    "bpmn": {
+      "total_items": 5,
+      "actual_counts": {
+        "K1": 1,
+        "K2": 1,
+        "K3": 1,
+        "K5": 1,
+        "K6": 1
+      },
+      "predicted_counts": {
+        "K2": 1,
+        "K3": 2,
+        "K5": 1,
+        "K6": 1
+      },
+      "mismatches": 3,
+      "actual_high_count": 2,
+      "predicted_high_count": 2,
+      "actual_high_ratio": 0.4,
+      "predicted_high_ratio": 0.4
+    },
+    "language": {
+      "total_items": 5,
+      "actual_counts": {
+        "K1": 1,
+        "K2": 1,
+        "K3": 1,
+        "K5": 1,
+        "K6": 1
+      },
+      "predicted_counts": {
+        "K2": 1,
+        "K3": 2,
+        "K5": 1,
+        "K6": 1
+      },
+      "mismatches": 3,
+      "actual_high_count": 2,
+      "predicted_high_count": 2,
+      "actual_high_ratio": 0.4,
+      "predicted_high_ratio": 0.4
+    },
+    "math": {
+      "total_items": 5,
+      "actual_counts": {
+        "K1": 1,
+        "K2": 1,
+        "K3": 1,
+        "K5": 1,
+        "K6": 1
+      },
+      "predicted_counts": {
+        "K3": 3,
+        "K5": 1,
+        "K6": 1
+      },
+      "mismatches": 2,
+      "actual_high_count": 2,
+      "predicted_high_count": 2,
+      "actual_high_ratio": 0.4,
+      "predicted_high_ratio": 0.4
+    }
+  },
+  "global": {
+    "total_items": 15,
+    "actual_high_count": 6,
+    "predicted_high_count": 6,
+    "actual_high_ratio": 0.4,
+    "predicted_high_ratio": 0.4,
+    "mismatches": 8
+  }
+}
