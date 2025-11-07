@@ -1,0 +1,155 @@
+{
+  "domain": "bpmn",
+  "version": "1.0",
+  "updated_at": "2024-05-01",
+  "skills": [
+    {
+      "id": "symbol-literacy",
+      "name": "Symbolkenntnis",
+      "module": "bpmn_symbolik",
+      "bloom_level": "K2",
+      "focus": [
+        "Ereignissymbole",
+        "Aktivitätstypen",
+        "Gateway-Logik"
+      ],
+      "attributes": {
+        "gateway_types": [
+          "Exklusives Gateway (XOR)",
+          "Paralleles Gateway",
+          "Inklusives Gateway"
+        ],
+        "escalation_events": [
+          "Zwischenereignis mit Eskalation",
+          "Abbruch-Eskalationsereignis"
+        ],
+        "notation_principles": [
+          "Klar dokumentierte Start- und Endereignisse",
+          "Trigger-Beschreibungen auf Ereignissen"
+        ]
+      },
+      "example_tasks": [
+        "Ordne Timer-, Nachrichten- und Eskalationsereignisse den passenden Symbolen zu.",
+        "Kennzeichne im gegebenen Diagramm alle Gateway-Symbole und benenne ihren Typ."
+      ]
+    },
+    {
+      "id": "modeling-rules",
+      "name": "Modellierungsregeln",
+      "module": "bpmn_best_practices",
+      "bloom_level": "K3",
+      "focus": [
+        "Sequenzfluss",
+        "Regelauslagerung",
+        "Stakeholder-Ansichten"
+      ],
+      "attributes": {
+        "sequencing_guidelines": [
+          "Links-nach-rechts-Fluss zur Vermeidung von Kreuzungen",
+          "Dokumentation von Trigger- und Abschlusskriterien",
+          "Gateways mit Ausdrücken für Entscheidungslogik"
+        ],
+        "stakeholder_views": [
+          "Summary-Diagramm für Programmleitungen",
+          "Detaildiagramm mit Eskalationspfaden für Operations"
+        ]
+      },
+      "example_tasks": [
+        "Überarbeite ein BPMN-Fragment, damit es den Links-nach-rechts-Grundsatz einhält.",
+        "Ergänze Entscheidungsregeln an einem bestehenden exklusiven Gateway."
+      ]
+    },
+    {
+      "id": "error-analysis",
+      "name": "Fehleranalyse",
+      "module": "bpmn_fehlermuster",
+      "bloom_level": "K4",
+      "focus": [
+        "Bottleneck-Identifikation",
+        "Dropout-Schleifen",
+        "Eskalationspfade"
+      ],
+      "attributes": {
+        "analysis_checks": [
+          "Prüfen auf fehlende Gateways nach parallelen Aktivitäten",
+          "Überwachung von Eskalations- und Abbruchereignissen",
+          "Variantenvergleich anhand von Prozess-Mining-Metriken"
+        ],
+        "diagnostic_indicators": [
+          "Durchschnittliche Bottleneck-Dauer",
+          "Dropout-Rate je Skill-Area"
+        ]
+      },
+      "example_tasks": [
+        "Führe eine Bottleneck-Analyse anhand der Prozess-Mining-Ausgabe durch.",
+        "Dokumentiere eine fehlerhafte Eskalationsbehandlung und schlage eine Korrektur vor."
+      ]
+    }
+  ],
+  "sequencing": [
+    {
+      "from": "symbol-literacy",
+      "to": "modeling-rules",
+      "relation": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "modeling-rules",
+      "to": "error-analysis",
+      "relation": "prerequisite",
+      "weight": 1.2
+    }
+  ],
+  "resources": [
+    {
+      "skill_id": "symbol-literacy",
+      "items": [
+        {
+          "resource_id": "bpmn-io-editor",
+          "title": "bpmn.io Diagrammeditor",
+          "uri": "https://demo.bpmn.io",
+          "modality": "tool",
+          "description": "Interaktiver Editor zum Üben der BPMN-Symbolik."
+        },
+        {
+          "resource_id": "symbol-reference",
+          "title": "BPMN Symbolübersicht",
+          "uri": "https://camunda.com/bpmn/reference/#!/",
+          "modality": "reference",
+          "description": "Nachschlagewerk für Ereignis- und Gateway-Symbole."
+        }
+      ]
+    },
+    {
+      "skill_id": "modeling-rules",
+      "items": [
+        {
+          "resource_id": "modeling-checklist",
+          "title": "Checkliste Modellierungsregeln",
+          "uri": "https://example.org/bpmn/modeling-checklist.pdf",
+          "modality": "job_aid",
+          "description": "Leitfaden für Sequenzierung, Regeln und Stakeholder-Sichten."
+        }
+      ]
+    },
+    {
+      "skill_id": "error-analysis",
+      "items": [
+        {
+          "resource_id": "process-animation",
+          "title": "Animierte Prozessdurchläufe",
+          "uri": "https://example.org/bpmn/animated-runthroughs",
+          "modality": "simulation",
+          "description": "Visualisierte Abläufe zur Erkennung von Eskalationen und Bottlenecks."
+        },
+        {
+          "resource_id": "mining-notebook",
+          "title": "Process-Mining Notebook",
+          "uri": "https://example.org/bpmn/process-mining-notebook",
+          "modality": "notebook",
+          "description": "Notebook mit Auswertungen zu Bottleneck-Dauern und Dropout-Raten."
+        }
+      ]
+    }
+  ]
+}

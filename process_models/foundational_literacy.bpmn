@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    id="Definitions_FoundationalLiteracy"
+    targetNamespace="http://example.com/adaptive-learning">
+  <bpmn:process id="Process_FoundationalLiteracy_Summary" name="Foundational Literacy (Summary)" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_FLS_Summary" name="Trigger: Learner Intake">
+      <bpmn:documentation>Scope: Foundational literacy refresh for newly assigned learners. Trigger: intake form received. End State: learner demonstrates mastery &gt;= 80% on capstone comprehension check.</bpmn:documentation>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_FLS_Diagnostic" name="Adaptive Diagnostic" />
+    <bpmn:exclusiveGateway id="Gateway_FLS_PathDecision" name="Placement Decision" />
+    <bpmn:task id="Task_FLS_Bridge" name="Bridge Skills Clinic" />
+    <bpmn:task id="Task_FLS_Guided" name="Guided Reading Lessons" />
+    <bpmn:task id="Task_FLS_Practice" name="Deliberate Practice Sprint" />
+    <bpmn:endEvent id="EndEvent_FLS_Summary" name="End: Mastery Confirmed">
+      <bpmn:documentation>Scope exit criteria met: learner eligible to progress to comprehension challenges or lateral skills.</bpmn:documentation>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_FLS_S1" sourceRef="StartEvent_FLS_Summary" targetRef="Task_FLS_Diagnostic" />
+    <bpmn:sequenceFlow id="Flow_FLS_S2" sourceRef="Task_FLS_Diagnostic" targetRef="Gateway_FLS_PathDecision" />
+    <bpmn:sequenceFlow id="Flow_FLS_S3" sourceRef="Gateway_FLS_PathDecision" targetRef="Task_FLS_Bridge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">diagnostic_score &lt; 0.6</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FLS_S4" sourceRef="Gateway_FLS_PathDecision" targetRef="Task_FLS_Guided">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">diagnostic_score &gt;= 0.6</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FLS_S5" sourceRef="Task_FLS_Bridge" targetRef="Task_FLS_Guided" />
+    <bpmn:sequenceFlow id="Flow_FLS_S6" sourceRef="Task_FLS_Guided" targetRef="Task_FLS_Practice" />
+    <bpmn:sequenceFlow id="Flow_FLS_S7" sourceRef="Task_FLS_Practice" targetRef="EndEvent_FLS_Summary" />
+  </bpmn:process>
+
+  <bpmn:process id="Process_FoundationalLiteracy_Detailed" name="Foundational Literacy (Detailed)" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_FLD" name="Trigger: Cohort Kickoff">
+      <bpmn:documentation>Scope: Weeks 1-4 of foundational literacy bootcamp. Trigger: cohort kickoff ceremony logged. End State: learner earns personalized mastery badge and feedback package delivered to mentor.</bpmn:documentation>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_FLD_Intake" name="Learner Intake Interview" />
+    <bpmn:task id="Task_FLD_Diagnostic" name="Granular Diagnostic (Lexile &amp; Fluency)" />
+    <bpmn:exclusiveGateway id="Gateway_FLD_Decision" name="Identify Gaps" />
+    <bpmn:task id="Task_FLD_Preteach" name="Pre-teach Micro-modules" />
+    <bpmn:parallelGateway id="Gateway_FLD_ParallelSplit" name="Launch Skill Tracks" />
+    <bpmn:task id="Task_FLD_Phonics" name="Phonics Studio" />
+    <bpmn:task id="Task_FLD_Comprehension" name="Comprehension Lab" />
+    <bpmn:parallelGateway id="Gateway_FLD_ParallelJoin" name="Converge Tracks" />
+    <bpmn:task id="Task_FLD_Formative" name="Formative Assessment &amp; Feedback" />
+    <bpmn:exclusiveGateway id="Gateway_FLD_MasteryCheck" name="Mastery Check" />
+    <bpmn:task id="Task_FLD_Reflection" name="Learner Reflection Journal" />
+    <bpmn:task id="Task_FLD_Remediation" name="Adaptive Reinforcement Loop" />
+    <bpmn:endEvent id="EndEvent_FLD" name="End: Mastery Badge Issued">
+      <bpmn:documentation>Scope exit: mastery badge generated, mentor notified, follow-on journey triggered.</bpmn:documentation>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_FLD_1" sourceRef="StartEvent_FLD" targetRef="Task_FLD_Intake" />
+    <bpmn:sequenceFlow id="Flow_FLD_2" sourceRef="Task_FLD_Intake" targetRef="Task_FLD_Diagnostic" />
+    <bpmn:sequenceFlow id="Flow_FLD_3" sourceRef="Task_FLD_Diagnostic" targetRef="Gateway_FLD_Decision" />
+    <bpmn:sequenceFlow id="Flow_FLD_4" sourceRef="Gateway_FLD_Decision" targetRef="Task_FLD_Preteach">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">gap_score &gt;= 0.4</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FLD_5" sourceRef="Gateway_FLD_Decision" targetRef="Gateway_FLD_ParallelSplit">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">gap_score &lt; 0.4</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FLD_6" sourceRef="Task_FLD_Preteach" targetRef="Gateway_FLD_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_FLD_7" sourceRef="Gateway_FLD_ParallelSplit" targetRef="Task_FLD_Phonics" />
+    <bpmn:sequenceFlow id="Flow_FLD_8" sourceRef="Gateway_FLD_ParallelSplit" targetRef="Task_FLD_Comprehension" />
+    <bpmn:sequenceFlow id="Flow_FLD_9" sourceRef="Task_FLD_Phonics" targetRef="Gateway_FLD_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_FLD_10" sourceRef="Task_FLD_Comprehension" targetRef="Gateway_FLD_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_FLD_11" sourceRef="Gateway_FLD_ParallelJoin" targetRef="Task_FLD_Formative" />
+    <bpmn:sequenceFlow id="Flow_FLD_12" sourceRef="Task_FLD_Formative" targetRef="Gateway_FLD_MasteryCheck" />
+    <bpmn:sequenceFlow id="Flow_FLD_13" sourceRef="Gateway_FLD_MasteryCheck" targetRef="Task_FLD_Reflection">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">mastery_score &gt;= 0.8</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FLD_14" sourceRef="Gateway_FLD_MasteryCheck" targetRef="Task_FLD_Remediation">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">mastery_score &lt; 0.8</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FLD_15" sourceRef="Task_FLD_Remediation" targetRef="Gateway_FLD_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_FLD_16" sourceRef="Task_FLD_Reflection" targetRef="EndEvent_FLD" />
+  </bpmn:process>
+</bpmn:definitions>

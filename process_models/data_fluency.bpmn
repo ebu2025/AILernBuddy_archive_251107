@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    id="Definitions_DataFluency"
+    targetNamespace="http://example.com/adaptive-learning">
+  <bpmn:process id="Process_DataFluency_Summary" name="Data Fluency (Summary)" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_DFS" name="Trigger: Analytics Journey Request">
+      <bpmn:documentation>Scope: Core data fluency accelerator covering descriptive statistics and visualization literacy. Trigger: advisor submits analytics journey request. End State: learner delivers insight brief and portfolio artifact.</bpmn:documentation>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_DFS_Baseline" name="Baseline Data Challenge" />
+    <bpmn:parallelGateway id="Gateway_DFS_ParallelSplit" name="Launch Dual Tracks" />
+    <bpmn:task id="Task_DFS_Statistics" name="Statistics Sprint" />
+    <bpmn:task id="Task_DFS_Visualization" name="Visualization Studio" />
+    <bpmn:parallelGateway id="Gateway_DFS_ParallelJoin" name="Consolidate Tracks" />
+    <bpmn:task id="Task_DFS_Synthesis" name="Synthesis Workshop" />
+    <bpmn:endEvent id="EndEvent_DFS" name="End: Insight Brief Submitted">
+      <bpmn:documentation>Scope exit: learning analytics submitted, triggers reflection session with mentor.</bpmn:documentation>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_DFS_1" sourceRef="StartEvent_DFS" targetRef="Task_DFS_Baseline" />
+    <bpmn:sequenceFlow id="Flow_DFS_2" sourceRef="Task_DFS_Baseline" targetRef="Gateway_DFS_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_DFS_3" sourceRef="Gateway_DFS_ParallelSplit" targetRef="Task_DFS_Statistics" />
+    <bpmn:sequenceFlow id="Flow_DFS_4" sourceRef="Gateway_DFS_ParallelSplit" targetRef="Task_DFS_Visualization" />
+    <bpmn:sequenceFlow id="Flow_DFS_5" sourceRef="Task_DFS_Statistics" targetRef="Gateway_DFS_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_DFS_6" sourceRef="Task_DFS_Visualization" targetRef="Gateway_DFS_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_DFS_7" sourceRef="Gateway_DFS_ParallelJoin" targetRef="Task_DFS_Synthesis" />
+    <bpmn:sequenceFlow id="Flow_DFS_8" sourceRef="Task_DFS_Synthesis" targetRef="EndEvent_DFS" />
+  </bpmn:process>
+
+  <bpmn:process id="Process_DataFluency_Detailed" name="Data Fluency (Detailed)" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_DFD" name="Trigger: Personalized Data Fluency Plan">
+      <bpmn:documentation>Scope: Weeks 1-6 data fluency journey across statistical reasoning, visualization, and storytelling. Trigger: personalized plan approved by mentor council. End State: learner earns Data Fluency credential and publishes retrospective.</bpmn:documentation>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_DFD_Stakeholder" name="Stakeholder Alignment Briefing" />
+    <bpmn:task id="Task_DFD_Audit" name="Prework Data Audit" />
+    <bpmn:inclusiveGateway id="Gateway_DFD_SelectiveSplit" name="Select Focus Tracks" />
+    <bpmn:task id="Task_DFD_Statistics" name="Statistical Reasoning Lab" />
+    <bpmn:task id="Task_DFD_Visualization" name="Visualization Design Lab" />
+    <bpmn:task id="Task_DFD_DataStory" name="Data Storytelling Clinic" />
+    <bpmn:inclusiveGateway id="Gateway_DFD_SelectiveJoin" name="Merge Focus Tracks" />
+    <bpmn:task id="Task_DFD_Project" name="Capstone Analytics Project" />
+    <bpmn:exclusiveGateway id="Gateway_DFD_Review" name="Review Outcome" />
+    <bpmn:task id="Task_DFD_Retrospective" name="Learning Retrospective" />
+    <bpmn:task id="Task_DFD_Iterate" name="Iteration Backlog" />
+    <bpmn:endEvent id="EndEvent_DFD" name="End: Credential &amp; Portfolio Published">
+      <bpmn:documentation>Scope exit: credential issued, assets distributed to stakeholders, next journey triggered.</bpmn:documentation>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_DFD_1" sourceRef="StartEvent_DFD" targetRef="Task_DFD_Stakeholder" />
+    <bpmn:sequenceFlow id="Flow_DFD_2" sourceRef="Task_DFD_Stakeholder" targetRef="Task_DFD_Audit" />
+    <bpmn:sequenceFlow id="Flow_DFD_3" sourceRef="Task_DFD_Audit" targetRef="Gateway_DFD_SelectiveSplit" />
+    <bpmn:sequenceFlow id="Flow_DFD_4" sourceRef="Gateway_DFD_SelectiveSplit" targetRef="Task_DFD_Statistics">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">focus_tracks contains "statistics"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_DFD_5" sourceRef="Gateway_DFD_SelectiveSplit" targetRef="Task_DFD_Visualization">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">focus_tracks contains "visualization"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_DFD_6" sourceRef="Gateway_DFD_SelectiveSplit" targetRef="Task_DFD_DataStory">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">focus_tracks contains "storytelling"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_DFD_7" sourceRef="Task_DFD_Statistics" targetRef="Gateway_DFD_SelectiveJoin" />
+    <bpmn:sequenceFlow id="Flow_DFD_8" sourceRef="Task_DFD_Visualization" targetRef="Gateway_DFD_SelectiveJoin" />
+    <bpmn:sequenceFlow id="Flow_DFD_9" sourceRef="Task_DFD_DataStory" targetRef="Gateway_DFD_SelectiveJoin" />
+    <bpmn:sequenceFlow id="Flow_DFD_10" sourceRef="Gateway_DFD_SelectiveJoin" targetRef="Task_DFD_Project" />
+    <bpmn:sequenceFlow id="Flow_DFD_11" sourceRef="Task_DFD_Project" targetRef="Gateway_DFD_Review" />
+    <bpmn:sequenceFlow id="Flow_DFD_12" sourceRef="Gateway_DFD_Review" targetRef="Task_DFD_Retrospective">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">review_outcome = "approved"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_DFD_13" sourceRef="Gateway_DFD_Review" targetRef="Task_DFD_Iterate">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">review_outcome = "iterate"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_DFD_14" sourceRef="Task_DFD_Iterate" targetRef="Gateway_DFD_SelectiveSplit" />
+    <bpmn:sequenceFlow id="Flow_DFD_15" sourceRef="Task_DFD_Retrospective" targetRef="EndEvent_DFD" />
+  </bpmn:process>
+</bpmn:definitions>

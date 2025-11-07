@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI LearnBuddy</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="logo">🤖</div>
+        <div>
+          <h1 class="title">AI LearnBuddy</h1>
+          <p class="subtitle">local · GPT4All · DeepSeek</p>
+        </div>
+      </div>
+      <p class="muted">Sign in to see your learning journeys.</p>
+      <div class="form-group">
+        <label class="label" for="authUser">User ID</label>
+        <input id="authUser" class="input" placeholder="e.g. learner" />
+      </div>
+      <div class="form-group">
+        <label class="label" for="authEmail">Email <span class="muted">(optional)</span></label>
+        <input id="authEmail" class="input" placeholder="optional@local" />
+      </div>
+      <div class="form-group">
+        <label class="label" for="authPass">Password</label>
+        <input id="authPass" type="password" class="input" placeholder="••••••" />
+      </div>
+      <div class="form-actions">
+        <button id="btnLogin" class="btn primary">Login</button>
+        <button id="btnRegister" class="btn ghost">Register</button>
+      </div>
+      <div id="authMsg" class="feedback muted"></div>
+    </div>
+  </div>
+
+  <div id="appScreen" class="app-screen hidden">
+    <aside class="history-panel">
+      <div class="history-brand">
+        <div class="logo">🤖</div>
+        <div>
+          <div class="brand-title">AI LearnBuddy</div>
+          <div class="brand-subtitle">Your chats</div>
+        </div>
+      </div>
+      <div class="history-user">
+        <span id="historyUser" class="muted">–</span>
+        <button id="btnLogout" class="btn ghost small-btn">Logout</button>
+      </div>
+      <div id="historySections" class="history-sections">
+        <section class="history-section" data-theme="business">
+          <div class="history-header">
+            <span>Business Process</span>
+            <button class="icon-btn" data-action="new" data-theme="business" title="New chat">＋</button>
+          </div>
+          <div class="history-list" id="history-business"></div>
+        </section>
+        <section class="history-section" data-theme="language">
+          <div class="history-header">
+            <span>Language</span>
+            <button class="icon-btn" data-action="new" data-theme="language" title="New chat">＋</button>
+          </div>
+          <div class="history-list" id="history-language"></div>
+        </section>
+        <section class="history-section" data-theme="math">
+          <div class="history-header">
+            <span>Mathematics</span>
+            <button class="icon-btn" data-action="new" data-theme="math" title="New chat">＋</button>
+          </div>
+          <div class="history-list" id="history-math"></div>
+        </section>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="workspace-header">
+        <div class="workspace-header-main">
+          <div class="label">Active chat</div>
+          <div id="activeTheme" class="workspace-title">–</div>
+          <div id="currentChatTitle" class="workspace-subtitle muted">New chat</div>
+        </div>
+        <div class="workspace-header-side">
+          <div class="workspace-tabs">
+            <button class="tab-btn active" data-view="chat">Chat</button>
+            <button class="tab-btn" data-view="profile">Profile</button>
+          </div>
+          <div class="workspace-session">
+            <span id="sessionUser" class="muted">not signed in</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="workspace-body">
+        <section class="chat-column" id="chatView">
+          <div class="chat-header">
+            <div class="chip" id="activeTopic">no topic</div>
+            <div id="status" class="status">ready</div>
+          </div>
+          <div id="chatLog" class="chat-log"></div>
+          <div class="composer">
+            <textarea id="msgInput" rows="2" class="input" placeholder="Type a message… (Shift+Enter for new line)"></textarea>
+            <button id="sendBtn" class="btn primary">Send</button>
+          </div>
+        </section>
+
+        <section class="profile-column hidden" id="profileView">
+          <div class="profile-card">
+            <div class="profile-header">
+              <h3>Learner profile</h3>
+              <button id="refreshProfile" class="btn ghost small-btn">Refresh</button>
+            </div>
+            <div id="profileStatus" class="muted small-text"></div>
+            <table class="profile-table">
+              <thead>
+                <tr>
+                  <th>Skill</th>
+                  <th>Mastery θ</th>
+                  <th>Bloom</th>
+                  <th>Updated</th>
+                  <th>Evidence</th>
+                </tr>
+              </thead>
+              <tbody id="profileTableBody"></tbody>
+            </table>
+            <div id="profileEmpty" class="muted">No measurements yet.</div>
+          </div>
+          <div class="profile-card">
+            <div class="profile-header">
+              <h3>Next recommendations</h3>
+            </div>
+            <ul id="profileNextList" class="profile-next-list"></ul>
+          </div>
+        </section>
+
+        <aside class="control-column">
+          <div class="control-card">
+            <h3>Chat settings</h3>
+            <div class="control-group">
+              <label class="label" for="modeSelect">Mode</label>
+              <select id="modeSelect" class="input">
+                <option value="simple">Standard chat</option>
+                <option value="tutor">Tutor chat (with DB ops)</option>
+              </select>
+            </div>
+            <div class="control-group" id="applyRow">
+              <label class="label" for="applyMode">apply_mode</label>
+              <select id="applyMode" class="input">
+                <option value="auto">auto</option>
+                <option value="review">review</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label class="label" for="maxTokens">max_tokens</label>
+              <input id="maxTokens" type="number" min="64" max="1200" step="1" class="input" placeholder="blank = engine default" />
+            </div>
+          </div>
+          <div class="control-card oversight-card" id="teacherOversight">
+            <div class="oversight-header">
+              <h3>Teacher oversight</h3>
+              <button id="refreshOversight" class="btn ghost small-btn">Refresh</button>
+            </div>
+            <div id="oversightStatus" class="oversight-status muted small-text">Sign in to load teacher analytics.</div>
+            <div class="oversight-table-wrap">
+              <table class="oversight-table">
+                <thead>
+                  <tr>
+                    <th>Stuck learners</th>
+                    <th>Override next step</th>
+                    <th>Progress sparkline</th>
+                    <th>Bloom distribution</th>
+                  </tr>
+                </thead>
+                <tbody id="oversightTableBody">
+                  <tr>
+                    <td colspan="4" class="oversight-empty">Sign in to view teacher oversight.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="control-card">
+            <h3>Tools</h3>
+            <button id="btnDiag" class="btn ghost full">Start diagnostics</button>
+            <button id="btnRefreshDB" class="btn ghost full">Database overview</button>
+            <button id="btnOpenAdmin" class="btn ghost full">Admin view</button>
+            <button id="btnClearChat" class="btn danger ghost full">Clear chat</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/static/ui.js"></script>
+</body>
+</html>

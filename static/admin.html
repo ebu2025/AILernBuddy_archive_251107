@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AILearnBuddy · Teacher dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <style>
+    body {
+      background: linear-gradient(145deg, #0f172a 0%, #101a32 50%, #0b1324 100%);
+      color: #f8fafc;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .dashboard-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .dashboard-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .dashboard-header h1 {
+      margin: 0;
+      font-size: 2.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .dashboard-header p {
+      margin: 0;
+      color: rgba(226, 232, 240, 0.72);
+      max-width: 760px;
+    }
+    .dashboard-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 30px 60px rgba(8, 15, 30, 0.45);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .dashboard-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 1.25rem;
+    }
+    .dashboard-filters label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(226, 232, 240, 0.72);
+    }
+    .dashboard-filters input,
+    .dashboard-filters select {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      border-radius: 12px;
+      color: #f1f5f9;
+      padding: 0.65rem 0.85rem;
+      min-width: 200px;
+      font-size: 0.95rem;
+    }
+    .dashboard-filters input[type="checkbox"] {
+      min-width: auto;
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+    .dashboard-filters button {
+      background: #38bdf8;
+      border: none;
+      border-radius: 12px;
+      padding: 0.65rem 1.4rem;
+      font-weight: 600;
+      color: #0f172a;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .dashboard-filters button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 20px rgba(56, 189, 248, 0.25);
+    }
+    .dashboard-status {
+      font-size: 0.9rem;
+      color: rgba(203, 213, 225, 0.92);
+      min-height: 1.2rem;
+    }
+    table.analytics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: rgba(10, 17, 31, 0.6);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    table.analytics-table thead {
+      background: rgba(56, 189, 248, 0.12);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+    }
+    table.analytics-table th,
+    table.analytics-table td {
+      padding: 0.9rem 0.85rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      vertical-align: top;
+      text-align: left;
+    }
+    table.analytics-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    table.analytics-table tbody tr {
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+    table.analytics-table tbody tr:hover {
+      background: rgba(56, 189, 248, 0.08);
+      transform: translateY(-1px);
+    }
+    table.analytics-table tbody tr.is-flagged {
+      background: linear-gradient(120deg, rgba(239, 68, 68, 0.18), rgba(56, 189, 248, 0.08));
+    }
+    table.analytics-table tbody tr.is-flagged td {
+      border-bottom-color: rgba(248, 113, 113, 0.4);
+    }
+    table.analytics-table .sortable-button {
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      text-transform: inherit;
+      letter-spacing: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    table.analytics-table .sortable-button:hover {
+      color: #38bdf8;
+    }
+    table.analytics-table .sortable-button .arrow {
+      font-size: 0.8rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: rgba(148, 163, 184, 0.2);
+      color: #e2e8f0;
+    }
+    .badge-danger {
+      background: rgba(248, 113, 113, 0.18);
+      color: #fecaca;
+    }
+    .flag-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      min-height: 1.5rem;
+    }
+    .flag-badges .badge {
+      background: rgba(248, 113, 113, 0.22);
+      color: #fee2e2;
+    }
+    .metric-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.8rem;
+      color: rgba(226, 232, 240, 0.85);
+    }
+    .metric-grid span {
+      background: rgba(15, 23, 42, 0.65);
+      padding: 0.25rem 0.55rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+    }
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: rgba(203, 213, 225, 0.86);
+    }
+    .override-meta {
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: rgba(148, 163, 184, 0.8);
+    }
+    .timeline-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 17, 31, 0.88);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    .timeline-overlay.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .timeline-card {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 16px;
+      max-width: 960px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 40px 80px rgba(8, 15, 30, 0.45);
+    }
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem 0.75rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+    .timeline-header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .timeline-close {
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: #e2e8f0;
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .timeline-close:hover {
+      background: rgba(56, 189, 248, 0.28);
+    }
+    .timeline-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .timeline-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      font-size: 0.9rem;
+      color: rgba(226, 232, 240, 0.82);
+    }
+    .timeline-sessions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .timeline-session {
+      background: rgba(10, 17, 31, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .timeline-session header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+    .timeline-session ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: rgba(226, 232, 240, 0.85);
+    }
+    .timeline-session li {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .timeline-empty {
+      font-size: 0.9rem;
+      color: rgba(148, 163, 184, 0.8);
+    }
+    .timeline-loading {
+      font-size: 0.95rem;
+      color: rgba(226, 232, 240, 0.92);
+    }
+    .override-status {
+      font-size: 0.75rem;
+      color: rgba(244, 244, 245, 0.85);
+      min-height: 1rem;
+    }
+    .actions-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .actions-cell button {
+      background: rgba(56, 189, 248, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #f8fafc;
+      border-radius: 10px;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+    .actions-cell button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 16px rgba(56, 189, 248, 0.25);
+    }
+    .action-status {
+      font-size: 0.75rem;
+      color: rgba(148, 163, 184, 0.86);
+    }
+    @media (max-width: 960px) {
+      table.analytics-table thead {
+        display: none;
+      }
+      table.analytics-table,
+      table.analytics-table tbody,
+      table.analytics-table tr,
+      table.analytics-table td {
+        display: block;
+        width: 100%;
+      }
+      table.analytics-table tr {
+        margin-bottom: 1.4rem;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 14px;
+        padding: 1rem 1rem 0.8rem;
+        background: rgba(15, 23, 42, 0.78);
+      }
+      table.analytics-table td {
+        border: none;
+        padding: 0.35rem 0;
+      }
+      table.analytics-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(148, 163, 184, 0.7);
+        margin-bottom: 0.3rem;
+      }
+      .timeline-card {
+        max-height: 100vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <h1>📊 Teacher analytics cockpit</h1>
+      <p>Monitor cohorts that may be stuck, review hint usage and confidence trends, and manually steer Bloom-level recommendations when needed.</p>
+    </header>
+
+    <section class="dashboard-card">
+      <form id="analyticsFilters" class="dashboard-filters">
+        <label>
+          Subject / domain
+          <input id="filterSubject" name="subject_id" placeholder="e.g. math" />
+        </label>
+        <label>
+          Window (days)
+          <input id="filterWindow" name="window_days" type="number" min="1" max="90" value="7" />
+        </label>
+        <label>
+          Max cohorts
+          <input id="filterLimit" name="limit" type="number" min="1" max="300" value="50" />
+        </label>
+        <label>
+          Flagged only
+          <input id="filterFlagged" name="only_flagged" type="checkbox" />
+        </label>
+        <button type="submit">Refresh analytics</button>
+      </form>
+      <div id="dashboardStatus" class="dashboard-status"></div>
+      <div class="table-wrapper">
+        <table class="analytics-table">
+          <thead>
+            <tr>
+              <th>Learner</th>
+              <th>Topic</th>
+              <th>Current level</th>
+              <th>Flags</th>
+              <th>Pre score</th>
+              <th>Post score</th>
+              <th>Δ score</th>
+              <th>
+                <button id="sortGain" class="sortable-button" type="button">
+                  g (normalized)
+                  <span class="arrow" aria-hidden="true">⇅</span>
+                </button>
+              </th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="analyticsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <div id="timelineOverlay" class="timeline-overlay" aria-hidden="true">
+    <div class="timeline-card" role="dialog" aria-modal="true" aria-labelledby="timelineTitle">
+      <div class="timeline-header">
+        <h2 id="timelineTitle">Learner timeline</h2>
+        <button id="timelineClose" class="timeline-close" type="button">Close</button>
+      </div>
+      <div id="timelineBody" class="timeline-body"></div>
+    </div>
+  </div>
+  <script src="/static/admin.js"></script>
+</body>
+</html>

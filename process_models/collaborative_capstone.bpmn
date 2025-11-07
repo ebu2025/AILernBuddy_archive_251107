@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    id="Definitions_CollaborativeCapstone"
+    targetNamespace="http://example.com/adaptive-learning">
+  <bpmn:process id="Process_CollabCapstone_Summary" name="Collaborative Capstone (Summary)" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_CCS" name="Trigger: Team Charter Approved">
+      <bpmn:documentation>Scope: Collaborative capstone journey linking research and prototyping skills. Trigger: mentor approves team charter. End State: team delivers live demo and retrospective.</bpmn:documentation>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_CCS_Planning" name="Sprint Planning" />
+    <bpmn:parallelGateway id="Gateway_CCS_ParallelSplit" name="Dual Workstreams" />
+    <bpmn:task id="Task_CCS_Research" name="Research Track" />
+    <bpmn:task id="Task_CCS_Prototype" name="Prototype Track" />
+    <bpmn:parallelGateway id="Gateway_CCS_ParallelJoin" name="Rejoin Workstreams" />
+    <bpmn:task id="Task_CCS_DemoPrep" name="Demo Preparation" />
+    <bpmn:endEvent id="EndEvent_CCS" name="End: Demo &amp; Retrospective">
+      <bpmn:documentation>Scope exit: demo delivered, retrospective recorded, handoff to growth journey.</bpmn:documentation>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_CCS_1" sourceRef="StartEvent_CCS" targetRef="Task_CCS_Planning" />
+    <bpmn:sequenceFlow id="Flow_CCS_2" sourceRef="Task_CCS_Planning" targetRef="Gateway_CCS_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_CCS_3" sourceRef="Gateway_CCS_ParallelSplit" targetRef="Task_CCS_Research" />
+    <bpmn:sequenceFlow id="Flow_CCS_4" sourceRef="Gateway_CCS_ParallelSplit" targetRef="Task_CCS_Prototype" />
+    <bpmn:sequenceFlow id="Flow_CCS_5" sourceRef="Task_CCS_Research" targetRef="Gateway_CCS_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_CCS_6" sourceRef="Task_CCS_Prototype" targetRef="Gateway_CCS_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_CCS_7" sourceRef="Gateway_CCS_ParallelJoin" targetRef="Task_CCS_DemoPrep" />
+    <bpmn:sequenceFlow id="Flow_CCS_8" sourceRef="Task_CCS_DemoPrep" targetRef="EndEvent_CCS" />
+  </bpmn:process>
+
+  <bpmn:process id="Process_CollabCapstone_Detailed" name="Collaborative Capstone (Detailed)" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_CCD" name="Trigger: Capstone Kickoff">
+      <bpmn:documentation>Scope: Twelve-week collaborative capstone emphasizing project orchestration, peer feedback, and iterative delivery. Trigger: kickoff milestone recorded in LMS. End State: cross-functional demo, stakeholder endorsement, and archived playbook.</bpmn:documentation>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_CCD_Onboard" name="Team Onboarding Workshop" />
+    <bpmn:task id="Task_CCD_Backlog" name="Backlog Grooming" />
+    <bpmn:parallelGateway id="Gateway_CCD_Split" name="Activate Workstreams" />
+    <bpmn:task id="Task_CCD_Research" name="Research Sprint" />
+    <bpmn:task id="Task_CCD_Prototype" name="Prototype Sprint" />
+    <bpmn:task id="Task_CCD_Stakeholder" name="Stakeholder Touchpoint" />
+    <bpmn:parallelGateway id="Gateway_CCD_Join" name="Synchronize Workstreams" />
+    <bpmn:task id="Task_CCD_Review" name="Sprint Review &amp; QA" />
+    <bpmn:exclusiveGateway id="Gateway_CCD_GoNoGo" name="Demo Readiness?" />
+    <bpmn:task id="Task_CCD_Retrospective" name="Team Retrospective" />
+    <bpmn:task id="Task_CCD_Improve" name="Improvement Backlog" />
+    <bpmn:task id="Task_CCD_Demo" name="Demo Day" />
+    <bpmn:endEvent id="EndEvent_CCD" name="End: Demo Approved">
+      <bpmn:documentation>Scope exit: demo approved by stakeholders, improvement notes archived, transition to scale program triggered.</bpmn:documentation>
+    </bpmn:endEvent>
+    <bpmn:boundaryEvent id="Boundary_CCD_Risk" attachedToRef="Task_CCD_Prototype" cancelActivity="false" name="Risk Escalation">
+      <bpmn:timerEventDefinition />
+    </bpmn:boundaryEvent>
+    <bpmn:task id="Task_CCD_RiskMitigation" name="Risk Mitigation Huddle" />
+    <bpmn:sequenceFlow id="Flow_CCD_Risk1" sourceRef="Boundary_CCD_Risk" targetRef="Task_CCD_RiskMitigation" />
+    <bpmn:sequenceFlow id="Flow_CCD_Risk2" sourceRef="Task_CCD_RiskMitigation" targetRef="Task_CCD_Stakeholder" />
+
+    <bpmn:sequenceFlow id="Flow_CCD_1" sourceRef="StartEvent_CCD" targetRef="Task_CCD_Onboard" />
+    <bpmn:sequenceFlow id="Flow_CCD_2" sourceRef="Task_CCD_Onboard" targetRef="Task_CCD_Backlog" />
+    <bpmn:sequenceFlow id="Flow_CCD_3" sourceRef="Task_CCD_Backlog" targetRef="Gateway_CCD_Split" />
+    <bpmn:sequenceFlow id="Flow_CCD_4" sourceRef="Gateway_CCD_Split" targetRef="Task_CCD_Research" />
+    <bpmn:sequenceFlow id="Flow_CCD_5" sourceRef="Gateway_CCD_Split" targetRef="Task_CCD_Prototype" />
+    <bpmn:sequenceFlow id="Flow_CCD_6" sourceRef="Gateway_CCD_Split" targetRef="Task_CCD_Stakeholder" />
+    <bpmn:sequenceFlow id="Flow_CCD_7" sourceRef="Task_CCD_Research" targetRef="Gateway_CCD_Join" />
+    <bpmn:sequenceFlow id="Flow_CCD_8" sourceRef="Task_CCD_Prototype" targetRef="Gateway_CCD_Join" />
+    <bpmn:sequenceFlow id="Flow_CCD_9" sourceRef="Task_CCD_Stakeholder" targetRef="Gateway_CCD_Join" />
+    <bpmn:sequenceFlow id="Flow_CCD_10" sourceRef="Gateway_CCD_Join" targetRef="Task_CCD_Review" />
+    <bpmn:sequenceFlow id="Flow_CCD_11" sourceRef="Task_CCD_Review" targetRef="Gateway_CCD_GoNoGo" />
+    <bpmn:sequenceFlow id="Flow_CCD_12" sourceRef="Gateway_CCD_GoNoGo" targetRef="Task_CCD_Demo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">readiness = "go"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_CCD_13" sourceRef="Gateway_CCD_GoNoGo" targetRef="Task_CCD_Improve">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">readiness = "no-go"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_CCD_14" sourceRef="Task_CCD_Improve" targetRef="Gateway_CCD_Split" />
+    <bpmn:sequenceFlow id="Flow_CCD_15" sourceRef="Task_CCD_Demo" targetRef="Task_CCD_Retrospective" />
+    <bpmn:sequenceFlow id="Flow_CCD_16" sourceRef="Task_CCD_Retrospective" targetRef="EndEvent_CCD" />
+  </bpmn:process>
+</bpmn:definitions>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "K1",
+    "label": "Remembering",
+    "description": "Recall relevant knowledge from memory (facts, terms, basic concepts).",
+    "min_score": 0.0
+  },
+  {
+    "id": "K2",
+    "label": "Understanding",
+    "description": "Explain ideas or concepts in your own words and identify relationships.",
+    "min_score": 0.5
+  },
+  {
+    "id": "K3",
+    "label": "Applying",
+    "description": "Use knowledge or procedures in new situations to solve problems.",
+    "min_score": 0.64
+  },
+  {
+    "id": "K4",
+    "label": "Analyzing",
+    "description": "Break information into parts, detect patterns, and explain how they connect.",
+    "min_score": 0.74
+  },
+  {
+    "id": "K5",
+    "label": "Evaluating",
+    "description": "Critically assess ideas or methods and justify conclusions with evidence.",
+    "min_score": 0.82
+  },
+  {
+    "id": "K6",
+    "label": "Creating",
+    "description": "Generate original products or reorganise knowledge into new patterns.",
+    "min_score": 0.88
+  }
+]

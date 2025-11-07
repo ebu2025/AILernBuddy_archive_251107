@@ -1,0 +1,182 @@
+{
+  "domain": "math",
+  "version": "1.0",
+  "updated_at": "2024-06-30",
+  "skills": [
+    {
+      "id": "algebra.linear_equations",
+      "name": "Lineare Gleichungen lösen",
+      "module": "math_algebra_module",
+      "bloom_level": "K3",
+      "difficulty": "intermediate",
+      "recommended_methods": [
+        "Socratic Hints",
+        "Visualisierung"
+      ],
+      "subskills": [
+        {
+          "id": "algebra.linear_equations.translation",
+          "name": "Textaufgaben in Gleichungen übersetzen",
+          "bloom_level": "K2"
+        },
+        {
+          "id": "algebra.linear_equations.balance",
+          "name": "Äquivalenzumformungen sicher anwenden",
+          "bloom_level": "K2"
+        },
+        {
+          "id": "algebra.linear_equations.slope_intercept",
+          "name": "Lineare Gleichungen grafisch deuten",
+          "bloom_level": "K3"
+        }
+      ],
+      "misconceptions": [
+        {
+          "id": "algebra.linear_equations.sign_flip",
+          "description": "Vorzeichenwechsel beim Übertragen wird vergessen oder doppelt ausgeführt.",
+          "tags": ["procedural"]
+        },
+        {
+          "id": "algebra.linear_equations.zero_division",
+          "description": "Durch Null teilen, wenn Variable eliminiert werden soll.",
+          "tags": ["conceptual"]
+        }
+      ],
+      "practice_applications": [
+        {
+          "id": "algebra.linear_equations.motion",
+          "description": "Geschwindigkeits- und Weg-Zeit-Modelle für gleichförmige Bewegung."
+        },
+        {
+          "id": "algebra.linear_equations.finance",
+          "description": "Kosten-Nutzen-Analysen mit linearen Modellen."
+        }
+      ],
+      "resources": [
+        {
+          "resource_id": "desmos-linear",
+          "title": "Desmos Graphing Calculator",
+          "uri": "https://www.desmos.com/calculator",
+          "modality": "tool",
+          "description": "Plot-Generator zum Visualisieren linearer Gleichungen."
+        }
+      ]
+    },
+    {
+      "id": "algebra.quadratic_equations",
+      "name": "Quadratische Gleichungen analysieren",
+      "module": "math_algebra_module",
+      "bloom_level": "K4",
+      "difficulty": "advanced",
+      "recommended_methods": [
+        "Socratic Hints",
+        "Strukturierte Zerlegung"
+      ],
+      "subskills": [
+        {
+          "id": "algebra.quadratic_equations.factorization",
+          "name": "Quadrate erkennen und faktorisieren",
+          "bloom_level": "K3"
+        },
+        {
+          "id": "algebra.quadratic_equations.vertex_form",
+          "name": "Scheitelpunktform interpretieren",
+          "bloom_level": "K4"
+        }
+      ],
+      "misconceptions": [
+        {
+          "id": "algebra.quadratic_equations.discriminant",
+          "description": "Diskriminante wird mit Vorzeichenfehler berechnet.",
+          "tags": ["procedural"]
+        },
+        {
+          "id": "algebra.quadratic_equations.vertex",
+          "description": "Scheitelpunkt wird mit falscher x-Koordinate bestimmt.",
+          "tags": ["conceptual"]
+        }
+      ],
+      "practice_applications": [
+        {
+          "id": "algebra.quadratic_equations.projectile",
+          "description": "Wurfparabeln und Trajektorienanalyse."
+        }
+      ],
+      "resources": [
+        {
+          "resource_id": "geogebra-parabola",
+          "title": "GeoGebra Parabel Explorer",
+          "uri": "https://www.geogebra.org/m/parabola",
+          "modality": "tool",
+          "description": "Interaktive Visualisierung quadratischer Funktionen."
+        },
+        {
+          "resource_id": "latex-quadratic",
+          "title": "LaTeX-Workshop: Quadratische Formeln",
+          "uri": "https://latex-tutorial.com/tutorials/quadratic-formula/",
+          "modality": "tutorial",
+          "description": "Schrittweise Darstellung und Dokumentation der Lösungswege."
+        }
+      ]
+    },
+    {
+      "id": "geometry.proof",
+      "name": "Geometrische Beweise strukturieren",
+      "module": "math_geometry_module",
+      "bloom_level": "K5",
+      "difficulty": "advanced",
+      "recommended_methods": [
+        "Socratic Hints",
+        "Argumentkarten"
+      ],
+      "subskills": [
+        {
+          "id": "geometry.proof.congruence",
+          "name": "Kongruenzsätze anwenden",
+          "bloom_level": "K4"
+        },
+        {
+          "id": "geometry.proof.visual",
+          "name": "Figuren markieren und Beziehungen visualisieren",
+          "bloom_level": "K3"
+        }
+      ],
+      "misconceptions": [
+        {
+          "id": "geometry.proof.parallel",
+          "description": "Verwechslung von parallelen und kongruenten Strecken.",
+          "tags": ["conceptual"]
+        }
+      ],
+      "practice_applications": [
+        {
+          "id": "geometry.proof.architecture",
+          "description": "Stabilitätsargumente in architektonischen Strukturen."
+        }
+      ],
+      "resources": [
+        {
+          "resource_id": "proof-maps",
+          "title": "Argumentkarten für geometrische Beweise",
+          "uri": "https://example.org/geometry/argument-maps",
+          "modality": "worksheet",
+          "description": "Vorlagen zur Strukturierung eigener Beweise."
+        }
+      ]
+    }
+  ],
+  "sequencing": [
+    {
+      "from": "algebra.linear_equations",
+      "to": "algebra.quadratic_equations",
+      "relation": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "algebra.quadratic_equations",
+      "to": "geometry.proof",
+      "relation": "supports",
+      "weight": 0.8
+    }
+  ]
+}
