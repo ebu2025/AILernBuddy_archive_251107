@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    id="Definitions_1"
+    targetNamespace="http://example.com/adaptive-learning">
+  <bpmn:process id="Process_LanguageDualTrack" name="Language Dual Track" isExecutable="false">
+    <bpmn:startEvent id="StartEvent" name="Assess Entry Level" />
+    <bpmn:parallelGateway id="Gateway_ParallelSplit" name="Launch Tracks" />
+    <bpmn:task id="Task_Vocabulary" name="Vocabulary Session" />
+    <bpmn:task id="Task_Grammar" name="Grammar Workshop" />
+    <bpmn:exclusiveGateway id="Gateway_CheckMastery" name="Check Mastery" />
+    <bpmn:task id="Task_Speaking" name="Speaking Practice" />
+    <bpmn:task id="Task_Remediation" name="Remediation Loop" />
+    <bpmn:endEvent id="EndEvent" name="Promote Level" />
+
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent" targetRef="Gateway_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Gateway_ParallelSplit" targetRef="Task_Vocabulary" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Gateway_ParallelSplit" targetRef="Task_Grammar" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_Vocabulary" targetRef="Gateway_CheckMastery" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_Grammar" targetRef="Gateway_CheckMastery" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Gateway_CheckMastery" targetRef="Task_Speaking">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">
+        mastery &gt;= 0.8
+      </bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Gateway_CheckMastery" targetRef="Task_Remediation">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">
+        mastery &lt; 0.8
+      </bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_Remediation" targetRef="Gateway_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_Speaking" targetRef="EndEvent" />
+  </bpmn:process>
+</bpmn:definitions>
